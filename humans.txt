@@ -1,0 +1,13 @@
+/* TEAM */
+	Developer: WP Moxie
+	Contact:   sarah@wpmoxie.com
+	URI:       http://wpmoxie.com/
+
+/* THANKS */
+	Template Design: WP Moxie
+	URI:             http://wpmoxie.com
+	Twitter:         @wpmoxie
+	
+	Starter Theme: Automattic
+	URI:		   http://automattic.com
+	Twitter:       @automattic

@@ -600,3 +600,19 @@ object {
 .infinity-end.neverending .site-footer {
 	display: block;
 }
+
+/* =Clear-fixes
+----------------------------------------------- */
+.cf:before,
+.cf:after {
+	content: " ";
+	display: table;
+}
+
+.cf:after {
+	clear: both;
+}
+
+.cf {
+	*zoom: 1;
+}

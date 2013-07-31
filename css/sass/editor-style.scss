@@ -1,0 +1,5 @@
+body#tinymce.wp-editor {
+	max-width: 300px; // Set this to the content width, so the line wraps fall at the same place
+}
+
+@import "content";
