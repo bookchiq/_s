@@ -8,7 +8,7 @@
 // Useful global constants
 define( '_S_VERSION', '1.0' );
 
- /**
+/**
 * Add humans.txt to the <head> element.
 */
 function _s_header_meta() {
@@ -97,7 +97,7 @@ add_action( 'widgets_init', '_s_widgets_init' );
  */
 function _s_scripts() {
 	wp_enqueue_style( '_s-style', get_stylesheet_uri() );
-	wp_enqueue_style( 'core', get_template_directory_uri() . '/css/core.css' );
+	wp_enqueue_style( '_s-core', get_template_directory_uri() . '/css/core.css' );
 
 	// Typekit
 	// wp_enqueue_script( 'typekit-_s', '//use.typekit.net/ntj6oqo.js' );
