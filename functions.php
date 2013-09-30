@@ -183,3 +183,8 @@ require get_template_directory() . '/inc/jetpack.php';
  * The options are set up in this file, so its's the one that needs editing
  */
 // require( get_template_directory() . '/inc/options.php' );
+
+/**
+ * Add debug data
+ */
+require get_template_directory() . '/inc/debug.php';
