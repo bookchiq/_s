@@ -156,7 +156,7 @@ add_editor_style( 'css/editor-style.css' );
 /**
  * Custom metaboxes for this theme.
  */
-require get_template_directory() . '/inc/metaboxes.php';
+// require get_template_directory() . '/inc/metaboxes.php';
 
 /**
  * Custom template tags for this theme.
