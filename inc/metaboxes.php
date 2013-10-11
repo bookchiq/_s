@@ -1,14 +1,16 @@
 <?php
-
 global $_s_metabox_prefix;
 $_s_metabox_prefix = '__s_';
 
 /**
- * Initialize meta boxes
+ * Initialize the metabox class
  */
-// if ( ! class_exists( 'cmb_Meta_Box' ) ) {
-// 	require( get_template_directory() . '/inc/cmb/init.php' );
-// }
+add_action( 'init', '_s_initialize_cmb_meta_boxes', 9999 );
+function _s_initialize_cmb_meta_boxes() {
+	if ( ! class_exists( 'cmb_Meta_Box' ) ) {
+		require_once( get_template_directory() . '/inc/cmb/init.php' );
+	}
+}
 
 /**
  * Set up metaboxes
