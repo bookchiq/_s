@@ -28,8 +28,6 @@ get_header(); ?>
 								esc_url( get_permalink( $post->post_parent ) ),
 								get_the_title( $post->post_parent )
 							);
-
-							edit_post_link( __( 'Edit', '_s' ), '<span class="edit-link">', '</span>' );
 						?>
 					</div><!-- .entry-meta -->
 
@@ -60,8 +58,6 @@ get_header(); ?>
 						) );
 					?>
 				</div><!-- .entry-content -->
-
-				<?php edit_post_link( __( 'Edit', '_s' ), '<footer class="entry-meta"><span class="edit-link">', '</span></footer>' ); ?>
 			</article><!-- #post-## -->
 
 			<?php
