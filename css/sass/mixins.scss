@@ -1,0 +1,50 @@
+@mixin border-radius( $radius: 10px ) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;  
+	border-radius: $radius;
+}
+
+@mixin border-radius-slash( $value1, $value2 ) {
+	-webkit-border-radius: #{$value1}/#{$value2};
+	-moz-border-radius: #{$value1}/#{$value2};
+	border-radius: #{$value1}/#{$value2};
+}
+
+@mixin box-shadow( $x: 0, $y: 0, $blur: 1px, $color: #000 ) {
+	box-shadow: $x $y $blur $color;
+	-moz-box-shadow: $x $y $blur $color;
+	-webkit-box-shadow: $x $y $blur $color;
+}
+
+@mixin box-shadow-inset( $x: 0, $y: 0, $blur: 1px, $color: #000 ) {
+	box-shadow: inset $x $y $blur $color;
+	-moz-box-shadow: inset $x $y $blur $color;
+	-webkit-box-shadow: inset $x $y $blur $color;
+}
+
+@mixin transition( $transitions... ) {
+	-moz-transition: $transitions;
+	-webkit-transition: $transitions;
+	-o-transition: $transitions;
+	transition: $transitions;
+}
+
+
+// Font stacks
+@mixin Guadalupe() {
+	font-family: Guadalupe, "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", "Book Antiqua", Garamond, "Century Schoolbook", "Niagara Solid", Utopia, "Times New Roman", serif;
+
+	&.wf-loading { display: none; }
+}
+
+@mixin HelveticaNeue() {
+	font-family: 'HelveticaNeueW01-47LtCn 692686', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
+	&.wf-loading { display: none; }
+
+	b,
+	strong {
+		font-family:'HelveticaNeueW01-57Cn';
+		font-weight: 400;
+	}
+}

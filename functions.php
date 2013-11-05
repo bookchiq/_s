@@ -7,16 +7,19 @@
 
 // Useful global constants
 define( '_S_VERSION', '1.0' );
+define( '_S_LATEST_SCRIPT_VERSION', date( 'Ymdhis' ) );
+// define( '_S_LATEST_SCRIPT_VERSION', '20131030a' );
 
 /**
 * Add humans.txt to the <head> element.
 */
-function _s_header_meta() {
-$humans = '<link type="text/plain" rel="author" href="' . get_template_directory_uri() . '/humans.txt" />';
-
-echo apply_filters( '_s_humans', $humans );
-}
 add_action( 'wp_head', '_s_header_meta' );
+function _s_header_meta() {
+	$humans = '<link type="text/plain" rel="author" href="' . get_template_directory_uri() . '/humans.txt" />';
+
+	echo apply_filters( '_s_humans', $humans );
+}
+
 
 /**
  * Set the content width based on the theme's design and stylesheet.
@@ -97,17 +100,14 @@ add_action( 'widgets_init', '_s_widgets_init' );
  */
 function _s_scripts() {
 	wp_enqueue_style( '_s-style', get_stylesheet_uri() );
-	wp_enqueue_style( '_s-core', get_template_directory_uri() . '/css/core.css' );
+	wp_enqueue_style( '_s-core', get_template_directory_uri() . '/css/core.css', array(), _S_LATEST_SCRIPT_VERSION );
 
 	// Typekit
-	// wp_enqueue_script( 'typekit-_s', '//use.typekit.net/ntj6oqo.js' );
-	// wp_enqueue_script( 'typekit-_s-start', get_template_directory_uri() . '/js/typekit.js', array( 'typekit-_s' ) );
+	// wp_enqueue_script( 'typekit-_s-start', get_template_directory_uri() . '/js/typekit.js' );
 
+	// Mobile and accessibility
 	wp_enqueue_script( '_s-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
-
 	wp_enqueue_script( '_s-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
-
-	// wp_enqueue_script( '_s-functions', get_template_directory_uri() . '/js/functions-ck.js', array( 'jquery' ), false, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -116,6 +116,8 @@ function _s_scripts() {
 	if ( is_singular() && wp_attachment_is_image() ) {
 		wp_enqueue_script( '_s-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20120202' );
 	}
+
+	// wp_enqueue_script( '_s-functions', get_template_directory_uri() . '/js/functions-ck.js', array( 'jquery' ), _S_LATEST_SCRIPT_VERSION, true );
 
 	// Custom file that the client can add to
 	wp_enqueue_style( 'custom-theme-styles', get_template_directory_uri() . '/css/custom.css' );

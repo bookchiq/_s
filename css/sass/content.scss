@@ -1,3 +1,5 @@
+@import "mixins";
+
 // Anything related to the appearance of the content itself should go here; it will be used to make the editor presentation match the final output.
 
 /* =Typography
@@ -5,6 +7,9 @@
 body {
 	font-family: Helvetica, Arial, sans-serif;
 }
+
+// Prevent FOUT
+.wf-loading { display: none; }
 
 /* =Link colors
 ----------------------------------------------- */
