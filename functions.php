@@ -6,7 +6,6 @@
  */
 
 // Useful global constants
-define( '_S_VERSION', '1.0' );
 define( '_S_LATEST_SCRIPT_VERSION', date( 'Ymdhis' ) );
 // define( '_S_LATEST_SCRIPT_VERSION', '20131030a' );
 
