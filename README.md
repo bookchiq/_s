@@ -28,7 +28,7 @@ If you want to set things up manually, download `_s` from github. The first thin
 3. Search for `_s-` to capture prefixed handles.
 4. Search for `Text Domain: _s` in style.css.
 5. Search for ` _s` (with a space before it) to capture DocBlocks.
-6. Search for `_S_LATEST_SCRIPT_VERSION`.
+6. Search for `_S_` to capture constants.
 
 OR
 
@@ -37,7 +37,7 @@ OR
 * Search for: `_s-` and replace with: `megatherium-`
 * Search for: `Text Domain: _s` and replace with: `Text Domain: megatherium` in style.css.
 * Search for: ` _s` and replace with: ` Megatherium`
-* Search for: `_S_LATEST_SCRIPT_VERSION` and replace with: `MEGATHERIUM_LATEST_SCRIPT_VERSION`
+* Search for: `_S_` and replace with: `MEGATHERIUM_`
 
 Then, update the stylesheet header in style.css and the links in footer.php with your own information. Next, update or delete this readme.
 
