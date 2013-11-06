@@ -1,3 +1,8 @@
+@mixin font-size( $sizeValue: 16 ) {
+	font-size: $sizeValue + px;
+	font-size: ($sizeValue / 10) + rem;
+}
+
 @mixin border-radius( $radius: 10px ) {
 	-webkit-border-radius: $radius;
 	-moz-border-radius: $radius;  
