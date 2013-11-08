@@ -101,9 +101,6 @@ function _s_scripts() {
 	wp_enqueue_style( '_s-style', get_stylesheet_uri() );
 	wp_enqueue_style( '_s-core', get_template_directory_uri() . '/css/core.css', array(), _S_LATEST_SCRIPT_VERSION );
 
-	// Typekit
-	// wp_enqueue_script( 'typekit-_s-start', get_template_directory_uri() . '/js/typekit.js' );
-
 	// Mobile and accessibility
 	wp_enqueue_script( '_s-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 	wp_enqueue_script( '_s-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
@@ -123,11 +120,6 @@ function _s_scripts() {
 }
 add_action( 'wp_enqueue_scripts', '_s_scripts' );
 
-// function _s_mce_external_plugins($plugin_array){
-// 	$plugin_array['typekit']  =  get_template_directory_uri().'/js/typekit.tinymce-ck.js';
-//     return $plugin_array;
-// }
-// add_filter( 'mce_external_plugins', '_s_mce_external_plugins' );
 
 /**
  * Turn off page comments and pings by default (they can still be enabled on a page-by-page basis)
@@ -158,6 +150,11 @@ add_editor_style( 'css/editor-style.css' );
  * Custom metaboxes for this theme.
  */
 // require get_template_directory() . '/inc/metaboxes.php';
+
+/**
+ * Add TypeKit scripts.
+ */
+// require get_template_directory() . '/inc/typekit.php';
 
 /**
  * Custom template tags for this theme.
