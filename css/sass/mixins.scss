@@ -35,7 +35,20 @@
 }
 
 
-// Font stacks
+/* =Alignment & Positioning
+----------------------------------------------- */
+@mixin center() {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+
+/* =Colors
+----------------------------------------------- */
+
+
+/* =Font stacks
+----------------------------------------------- */
 @mixin Guadalupe() {
 	font-family: Guadalupe, "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", "Book Antiqua", Garamond, "Century Schoolbook", "Niagara Solid", Utopia, "Times New Roman", serif;
 
