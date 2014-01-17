@@ -137,6 +137,35 @@ function _s_page_comments_off( $post_content, $post ) {
 }
 add_filter( 'default_content', '_s_page_comments_off', 10, 2 );
 
+
+/**
+* Add page slug body class
+*/ 
+add_filter( 'body_class', '_s_add_slug_body_class' );
+function _s_add_slug_body_class( $classes ) {
+	global $post;
+	if ( isset( $post ) ) {
+	    $classes[] = $post->post_type . '-' . $post->post_name;
+	}
+	return $classes;
+}
+
+
+/**
+* Add styles for the TinyMCE editor
+*/
+add_editor_style( 'css/editor-style.css' );
+// TinyMCE customizations: edit color palette
+add_filter('tiny_mce_before_init', '_s_change_tinymce_options');
+function _s_change_tinymce_options( $init ) {
+	$init['theme_advanced_text_colors'] = 'E7C989,434242,5E124A,440C39,082552';
+	$init['theme_advanced_buttons2_add_before'] = 'styleselect,fontsizeselect';
+	$init['theme_advanced_styles'] = 'Goudy Old Style=goudy,Hypatia Sans Pro=hypatia,Jellyka Delicious Cake Regular=jellyka,Proxima Nova=proxima-nova';
+	$init['theme_advanced_font_sizes'] = "12px,14px,18px,20px,22px,24px,26px,28px,30px,36px,48px,60px,72px";
+
+	return $init;
+}
+
 /**
 * Add styles for the TinyMCE editor
 */
