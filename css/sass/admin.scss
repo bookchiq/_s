@@ -1,0 +1,17 @@
+// Prevent Visual Composer from asking for license info (it's an extended license but their license check doesn't account for that)
+.vc-license-activation-notice {
+	display: none;
+}
+
+a[href="http://bit.ly/vcomposer"] {
+	color: transparent;
+	&:hover {
+		cursor: default;
+	}
+
+	&:before {
+		color: black;
+		content: 'Contact your developer for the latest version of this specially licensed plugin.';
+		opacity: 1;
+	}
+}

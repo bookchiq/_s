@@ -1,0 +1,15 @@
+/* line 2, sass/admin.scss */
+.vc-license-activation-notice {
+  display: none; }
+
+/* line 6, sass/admin.scss */
+a[href="http://bit.ly/vcomposer"] {
+  color: transparent; }
+  /* line 8, sass/admin.scss */
+  a[href="http://bit.ly/vcomposer"]:hover {
+    cursor: default; }
+  /* line 12, sass/admin.scss */
+  a[href="http://bit.ly/vcomposer"]:before {
+    color: black;
+    content: 'Contact your developer for the latest version of this specially licensed plugin.';
+    opacity: 1; }
