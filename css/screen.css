@@ -101,23 +101,20 @@ body:before {
   padding: 0 25px; }
 
 .site-main {
-  overflow: auto;
-  padding-bottom: 219px;
-  /* must be same height as the footer */ }
+  overflow: auto; }
 
 /* =Header
 ----------------------------------------------- */
 .site-header {
   margin-bottom: 60px; }
-
-.site-title {
-  float: left; }
-  .site-title a {
-    background: url("../images/logo.png") no-repeat;
-    display: block;
-    height: 84px;
-    text-indent: -9999em;
-    width: 665px; }
+  .site-header .site-title {
+    float: left; }
+    .site-header .site-title a {
+      background: url("../images/logo.png") no-repeat;
+      display: block;
+      height: 84px;
+      text-indent: -9999em;
+      width: 665px; }
 
 /* =Menu
 ----------------------------------------------- */
@@ -199,11 +196,9 @@ body:before {
 .site-content .site-navigation {
   margin: 0 0 1.5em;
   overflow: hidden; }
-
 .site-content .nav-previous {
   float: left;
   width: 50%; }
-
 .site-content .nav-next {
   float: right;
   text-align: right;
@@ -252,11 +247,7 @@ body:before {
   display: none; }
 
 /* =Footer
-[ Sticky Footer Solution by Steve Hatcher http://www.cssstickyfooter.com ]
 ----------------------------------------------- */
 .site-footer {
-  position: relative;
-  margin-top: -219px;
-  /* negative value of footer height */
-  height: 219px;
-  clear: both; }
+  clear: both;
+  position: relative; }

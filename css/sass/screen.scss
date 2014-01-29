@@ -3,8 +3,6 @@
 
 /* =Structure
 ----------------------------------------------- */
-$footer-height: 219px;
-
 html, body { height: 100%; }
 
 body {
@@ -13,11 +11,11 @@ body {
 
 /*Opera Fix*/
 body:before {
-	content:"";
-	float:left;
-	height:100%;
-	margin-top:-32767px;
-	width:0;
+	content: "";
+	float: left;
+	height: 100%;
+	margin-top: -32767px;
+	width: 0;
 }
 
 .site {
@@ -28,8 +26,7 @@ body:before {
 }
 
 .site-main {
-	overflow:auto;
-	padding-bottom: $footer-height; /* must be same height as the footer */
+	overflow: auto;
 }
 
 
@@ -37,17 +34,17 @@ body:before {
 ----------------------------------------------- */
 .site-header {
 	margin-bottom: 60px;
-}
 
-.site-title {
-	float: left;
+	.site-title {
+		float: left;
 
-	a {
-		background: url('../images/logo.png') no-repeat;
-		display: block;
-		height: 84px;
-		text-indent: -9999em;
-		width: 665px;
+		a {
+			background: url('../images/logo.png') no-repeat;
+			display: block;
+			height: 84px;
+			text-indent: -9999em;
+			width: 665px;
+		}
 	}
 }
 
@@ -157,8 +154,6 @@ body:before {
 }
 
 
-
-
 /* =Asides
 ----------------------------------------------- */
 .blog .format-aside .entry-title,
@@ -169,18 +164,20 @@ body:before {
 
 /* =Navigation
 ----------------------------------------------- */
-.site-content .site-navigation {
-	margin: 0 0 1.5em;
-	overflow: hidden;
-}
-.site-content .nav-previous {
-	float: left;
-	width: 50%;
-}
-.site-content .nav-next {
-	float: right;
-	text-align: right;
-	width: 50%;
+.site-content {
+	.site-navigation {
+		margin: 0 0 1.5em;
+		overflow: hidden;
+	}
+	.nav-previous {
+		float: left;
+		width: 50%;
+	}
+	.nav-next {
+		float: right;
+		text-align: right;
+		width: 50%;
+	}
 }
 
 /* =Comments
@@ -257,11 +254,8 @@ body:before {
 
 
 /* =Footer
-[ Sticky Footer Solution by Steve Hatcher http://www.cssstickyfooter.com ]
 ----------------------------------------------- */
 .site-footer {
-	position: relative;
-	margin-top: -$footer-height; /* negative value of footer height */
-	height: $footer-height;
 	clear: both;
+	position: relative;
 }
