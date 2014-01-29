@@ -132,25 +132,31 @@ body:before {
 }
 .hentry {
 	margin: 0 0 1.5em;
+
+	.entry-meta {
+		clear: both;
+	}
+	.byline {
+		display: none;
+
+		.single &,
+		.group-blog & {
+			display: inline;
+		}
+	}
+	
+	.entry-content,
+	.entry-summary {
+		margin: 1.5em 0 0;
+
+		.page-links {
+			clear: both;
+			margin: 0 0 1.5em;
+		}
+	}
 }
-.entry-meta {
-	clear: both;
-}
-.byline {
-	display: none;
-}
-.single .byline,
-.group-blog .byline {
-	display: inline;
-}
-.entry-content,
-.entry-summary {
-	margin: 1.5em 0 0;
-}
-.page-links {
-	clear: both;
-	margin: 0 0 1.5em;
-}
+
+
 
 
 /* =Asides
