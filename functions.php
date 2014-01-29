@@ -6,10 +6,12 @@
  */
 
 // Useful global constants
-define( '_S_VERSION', '1.0' );
-define( '_S_OPTIONS', '_s' );
-define( '_S_LATEST_SCRIPT_VERSION', date( 'Ymdhis' ) );
+define( '_S_DESIGNER_TWITTER_HANDLE', 'wpmoxie' );
+define( '_S_LATEST_SCRIPT_VERSION', date( 'Ymdhis' ) ); // Increment on every load for development only
 // define( '_S_LATEST_SCRIPT_VERSION', '20131030a' );
+define( '_S_OPTIONS', '_s_' );
+define( '_S_SHORTCODE_PREFIX', '_s' );
+define( '_S_VERSION', wp_get_theme()->get( 'Version' ) );
 
 /**
 * Add humans.txt to the <head> element.
@@ -105,7 +107,7 @@ add_action( 'widgets_init', '_s_widgets_init' );
  */
 function _s_scripts() {
 	wp_enqueue_style( '_s-style', get_stylesheet_uri() );
-	wp_enqueue_style( '_s-core', get_template_directory_uri() . '/css/core.css', array(), _S_LATEST_SCRIPT_VERSION );
+	wp_enqueue_style( '_s-screen', get_template_directory_uri() . '/css/screen.css', array(), _S_LATEST_SCRIPT_VERSION );
 
 	// Mobile and accessibility
 	wp_enqueue_script( '_s-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
@@ -213,9 +215,8 @@ require get_template_directory() . '/inc/jetpack.php';
 
 /**
  * Prepare theme options
- * The options are set up in this file, so its's the one that needs editing
  */
-// require( get_template_directory() . '/inc/options.php' );
+// require( get_template_directory() . '/inc/redux/redux-config.php' );
 
 /**
  * Add debug data
