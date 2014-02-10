@@ -130,6 +130,15 @@ add_action( 'wp_enqueue_scripts', '_s_scripts' );
 
 
 /**
+ * Enqueue admin scripts and styles
+ */
+function _s_scripts_admin() {
+	wp_enqueue_style( '_s-admin', get_template_directory_uri() . '/css/admin.css', array(), _S_LATEST_SCRIPT_VERSION );
+}
+add_action( 'admin_enqueue_scripts', '_s_scripts_admin' );
+
+
+/**
  * Turn off page comments and pings by default (they can still be enabled on a page-by-page basis)
  */
 function _s_page_comments_off( $post_content, $post ) {
