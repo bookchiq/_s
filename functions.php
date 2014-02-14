@@ -183,11 +183,6 @@ function _s_change_tinymce_options( $init ) {
 }
 
 /**
-* Add styles for the TinyMCE editor
-*/
-add_editor_style( 'css/editor-style.css' );
-
-/**
  * Implement the Custom Header feature.
  */
 //require get_template_directory() . '/inc/custom-header.php';
