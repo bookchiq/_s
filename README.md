@@ -22,21 +22,23 @@ If you want to keep it simple, head over to http://underscores.me and generate y
 
 If you want to set things up manually, download `_s` from github. The first thing you want to do is copy the `_s` directory and change the name to something else - Like, say, `megatherium` - then you'll need to do a six-step find and replace on the name in all the templates.
 
+Find-and-replace should be case-sensitive.
+
 1. Search for `'_s'` (inside single quotations) to capture the text domain.
 2. Search for `_s_` to capture all the function names.
-3. Search for `_s-` to capture prefixed handles.
-4. Search for `Text Domain: _s` in style.css.
-5. Search for ` _s` (with a space before it) to capture DocBlocks.
-6. Search for `_S_` to capture constants.
+3. Search for `Text Domain: _s` in style.css.
+4. Search for ` _s` (with a space before it) to capture DocBlocks.
+5. Search for `_S_` to capture constants.
+6. Search for `_s-` to capture prefixed handles.
 
 OR
 
 * Search for: `'_s'` and replace with: `'megatherium'`
 * Search for: `_s_` and replace with: `megatherium_`
-* Search for: `_s-` and replace with: `megatherium-`
 * Search for: `Text Domain: _s` and replace with: `Text Domain: megatherium` in style.css.
 * Search for: ` _s` and replace with: ` Megatherium`
 * Search for: `_S_` and replace with: `MEGATHERIUM_`
+* Search for: `_s-` and replace with: `megatherium-`
 
 Then, update the stylesheet header in style.css and the links in footer.php with your own information. Next, update or delete this readme.
 
