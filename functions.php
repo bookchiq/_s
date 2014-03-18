@@ -94,6 +94,7 @@ function _s_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Sidebar', '_s' ),
 		'id'            => 'sidebar-1',
+		'description'	=> __( 'The main sidebar', '_s' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h1 class="widget-title">',
@@ -219,6 +220,7 @@ require get_template_directory() . '/inc/jetpack.php';
 
 /**
  * Prepare theme options
+ * This assumes the Redux plugin is installed and activated
  */
 // require( get_template_directory() . '/inc/redux/redux-config.php' );
 

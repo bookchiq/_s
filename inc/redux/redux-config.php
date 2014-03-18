@@ -126,7 +126,7 @@ if (!function_exists('redux_init')) :
 
 	// Setup custom links in the footer for share icons
 	$args['share_icons']['twitter'] = array(
-	    'link' => 'http://twitter.com/' . _S_DESIGNER_TWITTER_HANDLE
+	    'link' => 'http://twitter.com/' . _S_DESIGNER_TWITTER_HANDLE,
 	    'title' => 'Follow me on Twitter', 
 	    'img' => ReduxFramework::$_url . 'assets/img/social/Twitter.png'
 	);

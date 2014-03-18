@@ -23,9 +23,6 @@ the other stylesheets. Remember, keep it light: Speed is Important.
 */
 /* =Structure
 ----------------------------------------------- */
-html, body {
-  height: 100%; }
-
 html {
   font-size: 62.5%; }
 

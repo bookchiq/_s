@@ -1,6 +1,7 @@
 /* =Structure
 ----------------------------------------------- */
-html, body { height: 100%; }
+// This will tack the footer below the viewport, so generally not useful unless you're also using sticky-footer styles
+// html, body { height: 100%; }
 
 html {
 	font-size: 62.5%; // Sets up the Base 10 stuff
