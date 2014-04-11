@@ -171,9 +171,12 @@ body:before {
 .comment-list {
   list-style: none;
   margin-left: 0; }
-  .comment-list ul.children {
+  .comment-list ol.children {
     list-style: none;
     margin: 0 -10px 0 90px; }
+  .comment-list .trackback,
+  .comment-list .pingback {
+    display: none; }
   .comment-list .comment {
     margin-bottom: 10px;
     padding: 10px 10px; }
@@ -181,12 +184,6 @@ body:before {
       display: block;
       float: right;
       margin-left: 25px; }
-      .comment-list .comment .reply a {
-        background: url("../images/icons/reply.png") no-repeat;
-        display: block;
-        height: 32px;
-        text-indent: -9999em;
-        width: 32px; }
     .comment-list .comment .comment-author .avatar {
       float: left;
       margin: 0 20px 20px 0; }

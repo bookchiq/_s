@@ -191,9 +191,15 @@ body:before {
 	list-style: none;
 	margin-left: 0;
 
-	ul.children {
+	ol.children {
 		list-style: none;
 		margin: 0 -10px 0 90px;
+	}
+
+	// Hide trackbacks by default
+	.trackback,
+	.pingback {
+		display: none;
 	}
 
 	.comment {
@@ -205,13 +211,13 @@ body:before {
 			float: right;
 			margin-left: 25px;
 
-			a {
-				background: url('../images/icons/reply.png') no-repeat;
-				display: block;
-				height: 32px;
-				text-indent: -9999em;
-				width: 32px;
-			}
+			// a {
+			// 	background: url('../images/icons/reply.png') no-repeat;
+			// 	display: block;
+			// 	height: 32px;
+			// 	text-indent: -9999em;
+			// 	width: 32px;
+			// }
 		}
 
 		.comment-author {
