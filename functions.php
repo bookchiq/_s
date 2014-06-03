@@ -97,8 +97,8 @@ add_action( 'after_setup_theme', '_s_setup' );
  */
 function _s_widgets_init() {
 	register_sidebar( array(
-		'name'          => __( 'Sidebar', '_s' ),
-		'id'            => 'sidebar-1',
+		'name'		  => __( 'Sidebar', '_s' ),
+		'id'			=> 'sidebar-1',
 		'description'	=> __( 'The main sidebar', '_s' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
@@ -112,12 +112,18 @@ add_action( 'widgets_init', '_s_widgets_init' );
  * Enqueue scripts and styles
  */
 function _s_scripts() {
-	wp_enqueue_style( '_s-style', get_stylesheet_uri() );
+	wp_enqueue_style( '_s-style', get_stylesheet_uri(), array(), LIGHTLABSTUDIOS_LATEST_SCRIPT_VERSION );
 	wp_enqueue_style( '_s-screen', get_template_directory_uri() . '/css/screen.css', array(), _S_LATEST_SCRIPT_VERSION );
 
+	// Webflow
+	wp_enqueue_style( '_s-webflow', get_template_directory_uri() . '/css/webflow.css', array(), _S_LATEST_SCRIPT_VERSION );
+	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/modernizr.js', array(), '2.7.1', false );
+	wp_enqueue_script( '_s-webflow', get_template_directory_uri() . '/js/webflow.js', array( 'jquery' ), _S_LATEST_SCRIPT_VERSION, true );
+
 	// Mobile and accessibility
-	wp_enqueue_script( '_s-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+	// wp_enqueue_script( '_s-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 	wp_enqueue_script( '_s-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+	// wp_enqueue_script( 'placeholders', get_template_directory_uri() . '/js/placeholders.min.js', array(), '3.0.2', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -167,7 +173,7 @@ add_filter( 'body_class', '_s_add_slug_body_class' );
 function _s_add_slug_body_class( $classes ) {
 	global $post;
 	if ( isset( $post ) ) {
-	    $classes[] = $post->post_type . '-' . $post->post_name;
+		$classes[] = $post->post_type . '-' . $post->post_name;
 	}
 	return $classes;
 }
@@ -176,15 +182,7 @@ function _s_add_slug_body_class( $classes ) {
 /**
 * Add styles for the TinyMCE editor
 */
-add_editor_style( 'css/editor-style.css' );
-
-// TinyMCE customizations: edit color palette and fonts
-// add_filter('tiny_mce_before_init', '_s_change_tinymce_options');
-// function _s_change_tinymce_options( $init ) {
-// 	$init['theme_advanced_text_colors'] = 'E7C989,434242,5E124A,440C39,082552';
-// 	$init['theme_advanced_buttons2_add_before'] = 'styleselect,fontsizeselect';
-// 	$init['theme_advanced_styles'] = 'Goudy Old Style=goudy,Hypatia Sans Pro=hypatia,Jellyka Delicious Cake Regular=jellyka,Proxima Nova=proxima-nova';
-// 	$init['theme_advanced_font_sizes'] = "12px,14px,18px,20px,22px,24px,26px,28px,30px,36px,48px,60px,72px";
+require get_template_directory() . '/inc/tinymce.php';
 
 /**
  * Implement the Custom Header feature.
@@ -214,7 +212,7 @@ require get_template_directory() . '/inc/extras.php';
 /**
  * Customizer additions.
  */
-require get_template_directory() . '/inc/customizer.php';
+// require get_template_directory() . '/inc/customizer.php';
 
 /**
  * Load Jetpack compatibility file.
@@ -222,10 +220,26 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/jetpack.php';
 
 /**
- * Prepare theme options
- * This assumes the Redux plugin is installed and activated
+ * Add Webflow customizations to Visual Composer
  */
-// require( get_template_directory() . '/inc/redux/redux-config.php' );
+// require get_template_directory() . '/inc/webflow.php';
+
+/**
+ * Load utility functions
+ */
+require get_template_directory() . '/inc/utility.php';
+
+/**
+ * Prepare theme options
+ */
+// Only load the class here if it's not included as a plugin
+// if ( ! class_exists( 'ReduxFramework' ) && file_exists( dirname( __FILE__ ) . '/inc/redux/ReduxCore/framework.php' ) ) {
+// 	require_once( dirname( __FILE__ ) . '/inc/redux/ReduxCore/framework.php' );
+// }
+// // The config file
+// if ( ! isset( $redux_demo ) && file_exists( dirname( __FILE__ ) . '/inc/redux-config.php' ) ) {
+// 	require_once( dirname( __FILE__ ) . '/inc/redux-config.php' );
+// }
 
 /**
  * Add debug data

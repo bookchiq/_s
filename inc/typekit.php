@@ -7,12 +7,13 @@ function _s_typekit_frontend_scripts() {
 	wp_enqueue_script( '_s-typekit', get_template_directory_uri() . '/js/typekit-ck.js' );
 }
 
-// Add to the editor
-add_filter( 'mce_external_plugins', '_s_mce_external_plugins' );
-function _s_mce_external_plugins($plugin_array){
-	$plugin_array['typekit']  =  get_template_directory_uri().'/js/typekit.tinymce-ck.js';
-    return $plugin_array;
-}
+// Disabling until there's a decent fix for the hideous BESbswy issue
+// // Add to the editor
+// add_filter( 'mce_external_plugins', '_s_mce_external_plugins' );
+// function _s_mce_external_plugins($plugin_array){
+// 	$plugin_array['typekit']  =  get_template_directory_uri().'/js/typekit.tinymce-ck.js';
+//     return $plugin_array;
+// }
 
 // Prevent test data from showing up
 add_filter( 'content_save_pre', '_s_clean_up_after_typekit', 20 );
