@@ -1,3 +1,0 @@
-[submodule "inc/redux"]
-	path = inc/redux
-	url = https://github.com/ReduxFramework/ReduxFramework.git
