@@ -43,6 +43,12 @@
 	}
 }
 
+@mixin hide-but-keep {
+	height: 0;
+	position: absolute;
+		left: -99999em;
+}
+
 
 /* =Media
 ----------------------------------------------- */

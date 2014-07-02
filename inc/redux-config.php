@@ -66,7 +66,7 @@ if (!function_exists('redux_init')) :
 
 	<?php
 	$item_info = ob_get_contents();
-	    
+		
 	ob_end_clean();
 
 	// BEGIN Sample Config
@@ -126,9 +126,9 @@ if (!function_exists('redux_init')) :
 
 	// Setup custom links in the footer for share icons
 	$args['share_icons']['twitter'] = array(
-	    'link' => 'http://twitter.com/' . _S_DESIGNER_TWITTER_HANDLE,
-	    'title' => 'Follow me on Twitter', 
-	    'img' => ReduxFramework::$_url . 'assets/img/social/Twitter.png'
+		'link' => 'http://twitter.com/' . _S_DESIGNER_TWITTER_HANDLE,
+		'title' => 'Follow me on Twitter', 
+		'icon' => 'el-icon-twitter',
 	);
 
 	// Enable the import/export feature.
@@ -205,7 +205,7 @@ if (!function_exists('redux_init')) :
 
 	$sections[] = array(
 		'title' => __('Social Networks', '_s'),
-		'desc' => __('Enter the full URL for each network you want to show. Networks left empty won\'t be displayed.', '_s'),
+		'desc' => __('Enter the full URL for each network you want to show. Networks left empty won\'t be displayed. You can display the links throughout the site using the shortcode <code>[' . _S_SHORTCODE_PREFIX . '-social]</code>.', '_s'),
 		'icon' => 'el-icon-thumbs-up',
 		'fields' => array(
 			array(
@@ -276,11 +276,11 @@ if (!function_exists('redux_init')) :
 
 
 	if(file_exists(trailingslashit(dirname(__FILE__)) . 'README.html')) {
-	    $tabs['docs'] = array(
+		$tabs['docs'] = array(
 			'icon' => 'el-icon-book',
-			    'title' => __('Documentation', '_s'),
-	        'content' => nl2br(file_get_contents(trailingslashit(dirname(__FILE__)) . 'README.html'))
-	    );
+				'title' => __('Documentation', '_s'),
+			'content' => nl2br(file_get_contents(trailingslashit(dirname(__FILE__)) . 'README.html'))
+		);
 	}
 
 	global $ReduxFramework;
@@ -289,60 +289,6 @@ if (!function_exists('redux_init')) :
 	// END Sample Config
 	}
 	add_action('init', 'redux_init');
-endif;
-
-/**
- 
- 	Custom function for filtering the sections array. Good for child themes to override or add to the sections.
- 	Simply include this function in the child themes functions.php file.
- 
- 	NOTE: the defined constants for URLs, and directories will NOT be available at this point in a child theme,
- 	so you must use get_template_directory_uri() if you want to use any of the built in icons
- 
- **/
-if ( !function_exists( 'redux_add_another_section' ) ):
-	function redux_add_another_section($sections){
-	    //$sections = array();
-	    $sections[] = array(
-	        'title' => __('Section via hook', '_s'),
-	        'desc' => __('<p class="description">This is a section created by adding a filter to the sections array. Can be used by child themes to add/remove sections from the options.</p>', '_s'),
-			'icon' => 'el-icon-paper-clip',
-			    // Leave this as a blank section, no options just some intro text set above.
-	        'fields' => array()
-	    );
-
-	    return $sections;
-	}
-	add_filter('redux/options/redux_demo/sections', 'redux_add_another_section');
-	// replace redux_demo with your opt_name
-endif;
-/**
-
-	Filter hook for filtering the args array given by a theme, good for child themes to override or add to the args array.
-
-**/
-if ( !function_exists( 'redux_change_framework_args' ) ):
-	function redux_change_framework_args($args){
-	    //$args['dev_mode'] = true;
-	    
-	    return $args;
-	}
-	add_filter('redux/options/redux_demo/args', 'redux_change_framework_args');
-	// replace redux_demo with your opt_name
-endif;
-/**
-
-	Filter hook for filtering the default value of any given field. Very useful in development mode.
-
-**/
-if ( !function_exists( 'redux_change_option_defaults' ) ):
-	function redux_change_option_defaults($defaults){
-	    $defaults['str_replace'] = "Testing filter hook!";
-	    
-	    return $defaults;
-	}
-	add_filter('redux/options/redux_demo/defaults', 'redux_change_option_defaults');
-	// replace redux_demo with your opt_name
 endif;
 
 
@@ -363,5 +309,5 @@ if ( !function_exists( 'redux_remove_demo_options' ) ):
 		remove_action('admin_notices', array( ReduxFrameworkPlugin::get_instance(), 'admin_notices' ) );	
 
 	}
-	//add_action( 'redux/plugin/hooks', 'redux_remove_demo_options' );	
+	add_action( 'redux/plugin/hooks', 'redux_remove_demo_options' );	
 endif;

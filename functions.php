@@ -114,9 +114,9 @@ function _s_scripts() {
 	wp_enqueue_style( '_s-style', get_stylesheet_uri(), array(), _S_LATEST_SCRIPT_VERSION );
 	wp_enqueue_style( '_s-screen', get_template_directory_uri() . '/css/screen.css', array(), _S_LATEST_SCRIPT_VERSION );
 
-	wp_enqueue_style( '_s-webflow', get_template_directory_uri() . '/css/webflow.css', array(), _S_LATEST_SCRIPT_VERSION );
+	// wp_enqueue_style( '_s-webflow', get_template_directory_uri() . '/css/webflow.css', array(), _S_LATEST_SCRIPT_VERSION );
 	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/modernizr.custom.18416.js', array(), '2.8.2', false );
-	wp_enqueue_script( '_s-webflow', get_template_directory_uri() . '/js/webflow.js', array( 'jquery' ), _S_LATEST_SCRIPT_VERSION, true );
+	// wp_enqueue_script( '_s-webflow', get_template_directory_uri() . '/js/webflow.js', array( 'jquery' ), _S_LATEST_SCRIPT_VERSION, true );
 
 	// Mobile and accessibility
 	// wp_enqueue_script( '_s-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
@@ -234,6 +234,11 @@ require get_template_directory() . '/inc/utility.php';
 // if ( ! isset( $redux_demo ) && file_exists( dirname( __FILE__ ) . '/inc/redux-config.php' ) ) {
 // 	require_once( dirname( __FILE__ ) . '/inc/redux-config.php' );
 // }
+
+/**
+ * Add custom shortcodes
+ */
+// require( get_template_directory() . '/inc/shortcodes.php' );
 
 /**
  * Add debug data
