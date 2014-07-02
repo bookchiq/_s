@@ -4,10 +4,10 @@
 	Email:         
 	Twitter:       @
 
-	Developer:     Moxie Pixels
-	URI:           http://moxiepixels.com
-	Email:         sarah@moxiepixels.com
-	Twitter:       @moxiepixels
+	Developer:     WP Moxie
+	URI:           http://wpmoxie.com
+	Email:         sarah@wpmoxie.com
+	Twitter:       @WPMoxie
 
 /* THANKS */
 	Starter Theme: Automattic
