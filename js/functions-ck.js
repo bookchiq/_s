@@ -1,1 +1,1 @@
-jQuery(document).ready(function(e){});
+svgeezy.init("nocheck","png");

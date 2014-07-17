@@ -13,3 +13,8 @@
 	Starter Theme: Automattic
 	URI:           http://automattic.com
 	Twitter:       @automattic
+
+	Menu Icon:     Timothy Miller
+	URI:           http://tmthymllr.com
+	Dribbble:      https://dribbble.com/shots/1136995-Wirecons-Vector-Icons
+	Twitter:       @tmthymllr

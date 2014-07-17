@@ -1,3 +1,5 @@
-jQuery( document ).ready( function( $ ) {
+svgeezy.init( 'nocheck', 'png' );
 
-} );
+// jQuery( document ).ready( function( $ ) {
+
+// } );

@@ -1,6 +1,5 @@
 <?php
-global $_s_metabox_prefix;
-$_s_metabox_prefix = '__s_';
+define( '_S_METABOX_PREFIX', '_s_' );
 
 /**
  * Initialize the metabox class
@@ -16,8 +15,6 @@ function _s_initialize_cmb_meta_boxes() {
  * Set up metaboxes
  */
 function _s_metaboxes( $meta_boxes ) {
-	global $_s_metabox_prefix;
-
 	$meta_boxes[] = array(
 		'id' => 'theme_extras',
 		'title' => 'Extras',
@@ -28,7 +25,7 @@ function _s_metaboxes( $meta_boxes ) {
 		'fields' => array(
 			array(
 				'name' => 'Secondary content',
-				'id' => $_s_metabox_prefix . 'secondary_content',
+				'id' => _S_METABOX_PREFIX . 'secondary_content',
 				// 'desc' => 'Anything you add in here will be displayed next to the logo.',
 				'type' => 'wysiwyg'
 			),
@@ -46,9 +43,9 @@ add_filter( 'cmb_meta_boxes', '_s_metaboxes' );
  * @param  boolean $wpautop   Whether or not to use the wpautop filter
  */
 function _s_get_secondary_content( $meta_name, $wpautop = true ) {
-	global $_s_metabox_prefix, $post;
+	global $post;
 
-	if ( $meta_content = get_post_meta( $post->ID, $_s_metabox_prefix . $meta_name, true ) ) {
+	if ( $meta_content = get_post_meta( $post->ID, _S_METABOX_PREFIX . $meta_name, true ) ) {
 		echo '<div class="secondary-content secondary-content-' . $meta_name . '" >' . "\r\n";
 		echo ( $wpautop ) ? wpautop( $meta_content ) : $meta_content;
 		echo '</div><!-- .secondary-content-' . $meta_name . ' -->' . "\r\n";

@@ -74,6 +74,9 @@ body:before {
 
 /* =Menu
 ----------------------------------------------- */
+ul.menu {
+  margin-left: 0; }
+
 .main-navigation {
   clear: both;
   display: block;
@@ -118,7 +121,16 @@ body:before {
 
 /* Small menu */
 .menu-toggle {
-  cursor: pointer; }
+  background: url(../images/menu.png);
+  background-image: url(../images/menu.svg), none;
+  background-repeat: no-repeat;
+  box-shadow: none;
+  cursor: pointer;
+  padding-left: 35px; }
+  .menu-toggle:hover {
+    background: url(../images/menu.png);
+    background-image: url(../images/menu.svg), none;
+    background-repeat: no-repeat; }
 
 .main-small-navigation .menu {
   display: none; }
@@ -213,8 +225,9 @@ body:before {
       font-style: normal;
       font-weight: bold;
       margin-right: 20px; }
-    .comment-list .comment .comment-meta {
+    .comment-list .comment .comment-metadata {
       font-size: 12px;
+      font-size: 1.2rem;
       margin-bottom: 1em;
       text-transform: uppercase; }
 
