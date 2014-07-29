@@ -11,13 +11,13 @@ of the styles inside media queries.
 ******************************************************************/
 /* =Colors
 ----------------------------------------------- */
-/* =Font stacks
------------------------------------------------ */
 /* =Boxes
 ----------------------------------------------- */
 /* =Alignment & Positioning
 ----------------------------------------------- */
 /* =Media
+----------------------------------------------- */
+/* =Forms
 ----------------------------------------------- */
 /* =High Definition
 ----------------------------------------------- */
@@ -26,11 +26,74 @@ of the styles inside media queries.
 /* =Special effects
 ----------------------------------------------- */
 /*
-BASE (MOBILE) SIZE
-This are the mobile styles. It's what people see on their phones. If
-you set a great foundation, you won't need to add too many styles in
-the other stylesheets. Remember, keep it light: Speed is Important.
+PRINT STYLESHEET
+Feel free to customize this. Remember to add things that won't make
+sense to print at the bottom. Things like nav, ads, and forms should
+be set to display none.
 */
+@media print {
+  /******************************************************************
+  Site Name:
+  Author:
+  
+  Stylesheet: Print Stylesheet
+  
+  This is the print stylesheet. There's probably not a lot
+  of reasons to edit this stylesheet. If you want to
+  though, go for it.
+  
+  ******************************************************************/
+  * {
+    background: transparent !important;
+    color: black !important;
+    text-shadow: none !important;
+    filter: none !important;
+    -ms-filter: none !important; }
+
+  a, a:visited {
+    color: #444 !important;
+    text-decoration: underline; }
+    a:after, a:visited:after {
+      content: " (" attr(href) ")"; }
+    a abbr[title]:after, a:visited abbr[title]:after {
+      content: " (" attr(title) ")"; }
+
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: ""; }
+
+  pre, blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid; }
+
+  thead {
+    display: table-header-group; }
+
+  tr, img {
+    page-break-inside: avoid; }
+
+  img {
+    max-width: 100% !important; }
+
+  @page {
+    margin: 0.5cm; }
+
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3; }
+
+  h2,
+  h3 {
+    page-break-after: avoid; }
+
+  .sidebar,
+  #secondary,
+  .page-navigation,
+  .wp-prev-next,
+  .respond-form,
+  nav {
+    display: none; } }
 /* =Structure
 ----------------------------------------------- */
 html {
@@ -84,25 +147,17 @@ ul.menu {
   margin-bottom: 56px;
   width: 100%; }
   .main-navigation ul {
-    display: table;
     list-style: none;
     margin: 0 auto;
     padding-left: 0; }
     .main-navigation ul li {
-      float: left;
-      margin-right: 36px;
       position: relative;
       text-align: center; }
-      .main-navigation ul li:last-child {
-        margin-right: 0; }
       .main-navigation ul li a {
-        color: #878787;
         display: block;
         text-decoration: none; }
       .main-navigation ul li:hover > ul {
         display: block; }
-      .main-navigation ul li.current_page_item a, .main-navigation ul li.current-menu-item a {
-        color: #063579; }
     .main-navigation ul ul {
       -moz-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
       -webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
@@ -118,19 +173,29 @@ ul.menu {
         top: 0; }
         .main-navigation ul ul ul li a {
           width: 200px; }
+    @media screen and (min-width: 601px) {
+      .main-navigation ul {
+        display: table; }
+        .main-navigation ul li {
+          float: left;
+          margin-right: 36px; }
+          .main-navigation ul li:last-child {
+            margin-right: 0; } }
 
 /* Small menu */
 .menu-toggle {
   background: url(../images/menu.png);
   background-image: url(../images/menu.svg), none;
   background-repeat: no-repeat;
+  background-size: contain;
   box-shadow: none;
   cursor: pointer;
   padding-left: 35px; }
   .menu-toggle:hover {
     background: url(../images/menu.png);
     background-image: url(../images/menu.svg), none;
-    background-repeat: no-repeat; }
+    background-repeat: no-repeat;
+    background-size: contain; }
 
 .main-small-navigation .menu {
   display: none; }
@@ -150,13 +215,13 @@ ul.menu {
     margin: 1.5em 0 0;
     /* =Colors
     ----------------------------------------------- */
-    /* =Font stacks
-    ----------------------------------------------- */
     /* =Boxes
     ----------------------------------------------- */
     /* =Alignment & Positioning
     ----------------------------------------------- */
     /* =Media
+    ----------------------------------------------- */
+    /* =Forms
     ----------------------------------------------- */
     /* =High Definition
     ----------------------------------------------- */
@@ -172,10 +237,6 @@ ul.menu {
     ----------------------------------------------- */
     /* =Forms
     ----------------------------------------------- */ }
-    .hentry .entry-content ol, .hentry .entry-content ul,
-    .hentry .entry-summary ol,
-    .hentry .entry-summary ul {
-      list-style: none; }
     .hentry .entry-content .page-links,
     .hentry .entry-summary .page-links {
       clear: both;
@@ -245,363 +306,3 @@ ul.menu {
 .site-footer {
   clear: both;
   position: relative; }
-
-/*
-LARGER MOBILE DEVICES
-This is for devices like the Galaxy Note or something that's
-larger than an iPhone but smaller than a tablet. Let's call them
-tweeners.
-*/
-@media only screen and (min-width: 481px) {
-  /******************************************************************
-  Site Name: 
-  Author: 
-  
-  Stylesheet: 481px and Up Stylesheet
-  
-  This stylesheet is loaded for larger devices. It's set to 
-  481px because at 480px it would load on a landscaped iPhone.
-  This isn't ideal because then you would be loading all those
-  extra styles on that same mobile connection. 
-  
-  A word of warning. This size COULD be a larger mobile device,
-  so you still want to keep it pretty light and simply expand
-  upon your base.scss styles.
-  
-  ******************************************************************/
-  /*********************
-  NAVIGATION STYLES
-  *********************/
-  /* .menu is clearfixed inside mixins.scss */
-  .menu {
-    /* end .menu ul */ }
-    .menu ul {
-      /* end .menu ul li */
-      /* highlight current page */
-      /* end current highlighters */ }
-      .menu ul li {
-        /*
-        plan your menus and drop-downs wisely.
-        */ }
-        .menu ul li a {
-          /*
-          you can use hover styles here even though this size
-          has the possibility of being a mobile device.
-          */ }
-
-  /* end .menu */
-  /*********************
-  POSTS & CONTENT STYLES
-  *********************/
-  /* entry content */
-  .entry-content {
-    /* at this larger size, we can start to align images */ }
-    .entry-content .alignleft, .entry-content img.alignleft {
-      margin-right: 1.5em;
-      display: inline;
-      float: left; }
-    .entry-content .alignright, .entry-content img.alignright {
-      margin-left: 1.5em;
-      display: inline;
-      float: right; }
-    .entry-content .aligncenter, .entry-content img.aligncenter {
-      margin-right: auto;
-      margin-left: auto;
-      display: block;
-      clear: both; }
-
-  /* end .entry-content */
-  /*********************
-  FOOTER STYLES
-  *********************/
-  /*
-  check your menus here. do they look good?
-  do they need tweaking?
-  */
-  /* end .footer-links */ }
-/*
-TABLET & SMALLER LAPTOPS
-This is the average viewing window. So Desktops, Laptops, and
-in general anyone not viewing on a mobile device. Here's where
-you can add resource intensive styles.
-*/
-@media only screen and (min-width: 768px) {
-  /******************************************************************
-  Site Name:
-  Author:
-  
-  Stylesheet: Tablet & Small Desktop Stylesheet
-  
-  Here's where you can start getting into the good stuff.
-  This size will work on iPads, other tablets, and desktops.
-  So you can start working with more styles, background images,
-  and other resources. You'll also notice the grid starts to
-  come into play. Have fun!
-  
-  ******************************************************************/
-  /*********************
-  GENERAL STYLES
-  *********************/
-  /*********************
-  LAYOUT & GRID STYLES
-  *********************/
-  /*********************
-  HEADER STYLES
-  *********************/
-  /*********************
-  NAVIGATION STYLES
-  *********************/
-  .main-navigation {
-    background: #eee;
-    border: 0;
-    /* end .menu ul li */
-    /* highlight current page */
-    /* end current highlighters */ }
-    .main-navigation ul {
-      margin-top: 0; }
-    .main-navigation li {
-      float: left;
-      position: relative;
-      /*
-      plan your menus and drop-downs wisely.
-      */
-      /* showing sub-menus */ }
-      .main-navigation li a {
-        border-bottom: 0;
-        /*
-        you can use hover styles here even though this size
-        has the possibility of being a mobile device.
-        */ }
-        .main-navigation li a:hover, .main-navigation li a:focus {
-          background-color: #dedede; }
-      .main-navigation li ul.sub-menu,
-      .main-navigation li ul.children {
-        margin-top: 0;
-        border: 1px solid #ccc;
-        border-top: 0;
-        position: absolute;
-        overflow: hidden;
-        visibility: hidden;
-        z-index: 8999;
-        /* highlight sub-menu current page */ }
-        .main-navigation li ul.sub-menu li,
-        .main-navigation li ul.children li {
-          /*
-          if you need to go deeper, go nuts
-          just remember deeper menus suck
-          for usability. k, bai.
-          */ }
-          .main-navigation li ul.sub-menu li a,
-          .main-navigation li ul.children li a {
-            padding-left: 10px;
-            border-right: 0;
-            display: block;
-            width: 180px;
-            border-bottom: 1px solid #ccc; }
-          .main-navigation li ul.sub-menu li:last-child a,
-          .main-navigation li ul.children li:last-child a {
-            border-bottom: 0; }
-      .main-navigation li:hover ul {
-        top: auto;
-        overflow: visible;
-        visibility: visible; }
-
-  /* end .nav */
-  /*********************
-  SIDEBARS & ASIDES
-  *********************/
-  .sidebar {
-    margin-top: 2.2em; }
-
-  .widgettitle {
-    border-bottom: 2px solid #444;
-    margin-bottom: 0.75em; }
-
-  .widget {
-    padding: 0 10px;
-    margin: 2.2em 0; }
-    .widget ul li {
-      margin-bottom: 0.75em;
-      /* deep nesting */ }
-      .widget ul li ul {
-        margin-top: 0.75em;
-        padding-left: 1em; }
-
-  /* links widget */
-  /* meta widget */
-  /* pages widget */
-  /* recent-posts widget */
-  /* archives widget */
-  /* tag-cloud widget */
-  /* calendar widget */
-  /* category widget */
-  /* recent-comments widget */
-  /* search widget */
-  /* text widget */
-  /*********************
-  FOOTER STYLES
-  *********************/
-  /*
-  you'll probably need to do quite a bit
-  of overriding here if you styled them for
-  mobile. Make sure to double check these!
-  */
-  .footer-links ul li {
-    /*
-    be careful with the depth of your menus.
-    it's very rare to have multi-depth menus in
-    the footer.
-    */ }
-
-  /* end .footer-links */ }
-/*
-DESKTOP
-This is the average viewing window. So Desktops, Laptops, and
-in general anyone not viewing on a mobile device. Here's where
-you can add resource intensive styles.
-*/
-@media only screen and (min-width: 1030px) {
-  /******************************************************************
-  Site Name: 
-  Author: 
-  
-  Stylesheet: Desktop Stylsheet
-  
-  This is the desktop size. It's larger than an iPad so it will only
-  be seen on the Desktop. 
-  
-  ******************************************************************/ }
-/*
-LARGE VIEWING SIZE
-This is for the larger monitors and possibly full screen viewers.
-*/
-@media only screen and (min-width: 1240px) {
-  /******************************************************************
-  Site Name: 
-  Author: 
-  
-  Stylesheet: Super Large Monitor Stylesheet
-  
-  You can add some advanced styles here if you like. This kicks in
-  on larger screens.
-  
-  ******************************************************************/ }
-/*
-RETINA (2x RESOLUTION DEVICES)
-This applies to the retina iPhone (4s) and iPad (2,3) along with
-other displays with a 2x resolution. You can also create a media
-query for retina AND a certain size if you want. Go Nuts.
-*/
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
-  /******************************************************************
-  Site Name: 
-  Author: 
-  
-  Stylesheet: Retina Screens & Devices Stylesheet
-  
-  When handling retina screens you need to make adjustments, especially
-  if you're not using font icons. Here you can add them in one neat
-  place.
-  
-  ******************************************************************/
-  /* 
-  
-  EXAMPLE 
-  Let's say you have an image and you need to make sure it looks ok
-  on retina screens. Let's say we have an icon which dimension are
-  24px x 24px. In your regular stylesheets, it would look something
-  like this:
-  
-  .icon {
-  	width: 24px;
-  	height: 24px;
-  	background: url(img/test.png) no-repeat;
-  }
-  
-  For retina screens, we have to make some adjustments, so that image
-  doesn't look blurry. So, taking into account the image above and the
-  dimensions, this is what we would put in our retina stylesheet:
-  
-  .icon {
-  	background: url(img/test@2x.png) no-repeat;
-  	background-size: 24px 24px;
-  }
-  
-  So, you would create the same icon, but at double the resolution, meaning 
-  it would be 48px x 48px. You'd name it the same, but with a @2x at the end
-  (this is pretty standard practice). Set the background image so it matches
-  the original dimensions and you are good to go. 
-  
-  */ }
-/*
-iPHONE 5 MEDIA QUERY
-Want to get fancy for no good reason? Knock yourself out.
-*/
-/*
-PRINT STYLESHEET
-Feel free to customize this. Remember to add things that won't make
-sense to print at the bottom. Things like nav, ads, and forms should
-be set to display none.
-*/
-@media print {
-  /******************************************************************
-  Site Name:
-  Author:
-  
-  Stylesheet: Print Stylesheet
-  
-  This is the print stylesheet. There's probably not a lot
-  of reasons to edit this stylesheet. If you want to
-  though, go for it.
-  
-  ******************************************************************/
-  * {
-    background: transparent !important;
-    color: black !important;
-    text-shadow: none !important;
-    filter: none !important;
-    -ms-filter: none !important; }
-
-  a, a:visited {
-    color: #444 !important;
-    text-decoration: underline; }
-    a:after, a:visited:after {
-      content: " (" attr(href) ")"; }
-    a abbr[title]:after, a:visited abbr[title]:after {
-      content: " (" attr(title) ")"; }
-
-  .ir a:after,
-  a[href^="javascript:"]:after,
-  a[href^="#"]:after {
-    content: ""; }
-
-  pre, blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid; }
-
-  thead {
-    display: table-header-group; }
-
-  tr, img {
-    page-break-inside: avoid; }
-
-  img {
-    max-width: 100% !important; }
-
-  @page {
-    margin: 0.5cm; }
-
-  p, h2, h3 {
-    orphans: 3;
-    widows: 3; }
-
-  h2,
-  h3 {
-    page-break-after: avoid; }
-
-  .sidebar,
-  .page-navigation,
-  .wp-prev-next,
-  .respond-form,
-  nav {
-    display: none; } }

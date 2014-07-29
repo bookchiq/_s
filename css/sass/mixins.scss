@@ -32,21 +32,19 @@
 	margin-left: auto;
 }
 
-@mixin max-width() {
-	max-width: 940px;
-	padding-left: 25px;
-	padding-right: 25px;
+@mixin max-width( $max-width: 1030px, $padding-left: 25px, $padding-right: 25px ) {
+	max-width: $max-width;
+	padding-left: $padding-left;
+	padding-right: $padding-right;
 
-	@media only screen and (min-width: 990px) {
+	@media only screen and (min-width: ($max-width + $padding-left + $padding-right) ) {
 		padding-left: 0;
 		padding-right: 0;
 	}
 }
 
 @mixin hide-but-keep {
-	height: 0;
-	position: absolute;
-		left: -99999em;
+	display: none;
 }
 
 
@@ -55,6 +53,48 @@
 @mixin svg( $filename, $path: '../images/' ) {
 	background: url( #{$path}#{$filename}.png );
 	background-image: url( #{$path}#{$filename}.svg ), none;
+}
+
+@mixin replace-with-svg( $filename, $width: 100px, $height: 100px, $path: '../images/' ) {
+	@include svg( $filename, $path );
+	background-repeat: no-repeat;
+	display: block;
+	height: $height;
+	line-height: $height;
+	overflow: hidden;
+	text-indent: 100%;
+	white-space: nowrap;
+	width: $width;
+	max-width: 100%;
+}
+
+
+/* =Forms
+----------------------------------------------- */
+@mixin placeholder( $color, $font-size: inherit, $font-style: normal ) {
+	::-webkit-input-placeholder {
+		color: $color;
+		font-size: $font-size;
+		font-style: $font-style;
+	}
+
+	:-moz-placeholder { /* Firefox 18- */
+		color: $color;
+		font-size: $font-size;
+		font-style: $font-style;  
+	}
+
+	::-moz-placeholder {  /* Firefox 19+ */
+		color: $color;
+		font-size: $font-size;
+		font-style: $font-style;  
+	}
+
+	:-ms-input-placeholder {  
+		color: $color;
+		font-size: $font-size;
+		font-style: $font-style;  
+	}
 }
 
 
