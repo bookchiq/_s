@@ -137,6 +137,19 @@ add_action( 'wp_enqueue_scripts', '_s_scripts' );
 
 
 /**
+ * Enqueue webfonts for both the front-end and the editor
+ */
+// function _s_load_webfonts() {
+// 	wp_enqueue_style( 'fonts-dot-com', 'http://fast.fonts.net/cssapi/3e8ae6e5-4ff3-42d1-84f5-f0bfc55a21bd.css', array(), '1.0' );
+// 	add_editor_style( 'http://fast.fonts.net/cssapi/3e8ae6e5-4ff3-42d1-84f5-f0bfc55a21bd.css' );
+// 	wp_enqueue_style( '_s-webfonts', get_template_directory_uri() . '/css/webfonts.css', array(), _S_LATEST_SCRIPT_VERSION );
+// 	add_editor_style( get_template_directory_uri() . '/css/webfonts.css' );
+// }
+// add_action( 'wp_enqueue_scripts', '_s_load_webfonts' );
+// add_action( 'init', '_s_load_webfonts' );
+
+
+/**
  * Enqueue admin scripts and styles
  */
 function _s_scripts_admin() {
@@ -227,7 +240,7 @@ require get_template_directory() . '/inc/utility.php';
 /**
  * Prepare theme options
  */
-// Only load the class here if it's not included as a plugin
+// // Only load the class here if it's not included as a plugin
 // if ( ! class_exists( 'ReduxFramework' ) && file_exists( dirname( __FILE__ ) . '/inc/redux/ReduxCore/framework.php' ) ) {
 // 	require_once( dirname( __FILE__ ) . '/inc/redux/ReduxCore/framework.php' );
 // }
@@ -235,6 +248,8 @@ require get_template_directory() . '/inc/utility.php';
 // if ( ! isset( $redux_demo ) && file_exists( dirname( __FILE__ ) . '/inc/redux-config.php' ) ) {
 // 	require_once( dirname( __FILE__ ) . '/inc/redux-config.php' );
 // }
+// // Some custom functions for getting and displaying the options
+// require( get_template_directory() . '/inc/redux-functions.php' );
 
 /**
  * Add custom shortcodes

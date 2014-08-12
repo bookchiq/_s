@@ -128,6 +128,8 @@
 	}
 }
 
+
+// Don't forget: add these fonts to the _s_change_tinymce_fonts() function in /inc/tinymce.php
 @mixin enzo( $weight: 300 ) {
 	font-family: 'ff-enzo-web', 'FF Enzo', sans-serif;
 	font-weight: $weight;

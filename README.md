@@ -26,8 +26,7 @@ If you want to set things up manually, download `_s` from GitHub. The first thin
 2. Search for `_s_` to capture all the function names.
 3. Search for `_s-` to capture prefixed handles.
 4. Search for `_S_` to capture constants.
-5. Search for <code>&nbsp;_s</code> (with a space before it) to capture DocBlocks.
-6. Search for `Text Domain: _s` in style.css.
+5. Search for ` _s[^\w]` (as regex!) to capture DocBlocks.
 
 OR
 
