@@ -26,7 +26,8 @@ If you want to set things up manually, download `_s` from GitHub. The first thin
 2. Search for `_s_` to capture all the function names.
 3. Search for `_s-` to capture prefixed handles.
 4. Search for `_S_` to capture constants.
-5. Search for ` _s[^\w]` (as regex!) to capture DocBlocks.
+5. Search for `Text Domain: _s` and replace with: `Text Domain: megatherium` in style.css.
+6. Search for ` _s([^\w])` (as regex!) to capture DocBlocks.
 
 OR
 
@@ -34,8 +35,8 @@ OR
 * Search for: `_s_` and replace with: `megatherium_`
 * Search for: `_s-` and replace with: `megatherium-`
 * Search for: `_S_` and replace with: `MEGATHERIUM_`
-* Search for: <code>&nbsp;_s</code> and replace with: <code>&nbsp;Megatherium</code>
 * Search for: `Text Domain: _s` and replace with: `Text Domain: megatherium` in style.css.
+* Search for: ` _s([^\w])` (as regex!) and replace with ` Megatherium$1`</code>
 
 
 
