@@ -18,8 +18,6 @@ function _s_get_option( $option_name, $args = array() ) {
 		'attributes'      => array(),
 	);
 
-	// log_it( 'let us talk about attributes', $args );
-
 	$args = wp_parse_args( $args, $defaults );
 	$out = false;
 
