@@ -23,6 +23,8 @@ of the styles inside media queries.
 ----------------------------------------------- */
 /* =Special effects
 ----------------------------------------------- */
+/* =Media query helpers
+----------------------------------------------- */
 /*
 PRINT STYLESHEET
 Feel free to customize this. Remember to add things that won't make
@@ -224,6 +226,8 @@ ul.menu {
     /* =Typography
     ----------------------------------------------- */
     /* =Special effects
+    ----------------------------------------------- */
+    /* =Media query helpers
     ----------------------------------------------- */
     /* =Typography
     ----------------------------------------------- */
