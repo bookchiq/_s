@@ -203,6 +203,11 @@ require get_template_directory() . '/inc/tinymce.php';
 // require get_template_directory() . '/inc/metaboxes.php';
 
 /**
+ * Custom Post Types for this theme.
+ */
+// require get_template_directory() . '/inc/cpt.php';
+
+/**
  * Add TypeKit scripts.
  */
 // require get_template_directory() . '/inc/typekit.php';
