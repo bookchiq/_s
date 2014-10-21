@@ -119,9 +119,6 @@ body:before {
   min-height: 100%;
   padding: 0; }
 
-.site-main {
-  overflow: auto; }
-
 /* =Header
 ----------------------------------------------- */
 .site-header {

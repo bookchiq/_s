@@ -62,7 +62,7 @@ body:before {
 }
 
 .site-main {
-	overflow: auto;
+	// overflow: auto; // Enabling this may help with certain layouts but also tends to screw with Visual Composer gutters
 }
 
 
