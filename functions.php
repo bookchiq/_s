@@ -154,6 +154,7 @@ add_action( 'wp_enqueue_scripts', '_s_scripts' );
  */
 function _s_scripts_admin() {
 	wp_enqueue_style( '_s-admin', get_template_directory_uri() . '/css/admin.css', array(), _S_LATEST_SCRIPT_VERSION );
+	wp_enqueue_script( '_s-admin', get_template_directory_uri() . '/js/admin-ck.js', array( 'jquery' ), _S_LATEST_SCRIPT_VERSION, true );
 }
 add_action( 'admin_enqueue_scripts', '_s_scripts_admin' );
 
