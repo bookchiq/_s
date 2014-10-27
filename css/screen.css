@@ -183,6 +183,10 @@ ul.menu {
 .menu-toggle {
   background: url(../images/menu.png);
   background-image: url(../images/menu.svg), none;
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  -ms-behavior: url("../js/backgroundsize.min.htc");
   background-repeat: no-repeat;
   background-size: contain;
   box-shadow: none;
@@ -191,6 +195,10 @@ ul.menu {
   .menu-toggle:hover {
     background: url(../images/menu.png);
     background-image: url(../images/menu.svg), none;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    -ms-behavior: url("../js/backgroundsize.min.htc");
     background-repeat: no-repeat;
     background-size: contain; }
 

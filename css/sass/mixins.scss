@@ -25,9 +25,12 @@
 
 /* =Media
 ----------------------------------------------- */
-@mixin svg( $filename, $path: '../images/' ) {
+@mixin svg( $filename, $path: '../images/', $background-position: left center, $background-repeat: no-repeat, $background-size: 100% 100% ) {
 	background: url( #{$path}#{$filename}.png );
 	background-image: url( #{$path}#{$filename}.svg ), none;
+	background-position: $background-position;
+	background-repeat: $background-repeat;
+	@include background-size( $background-size );
 }
 
 @mixin replace-with-svg( $filename, $width: 100px, $height: 100px, $path: '../images/' ) {
@@ -41,6 +44,11 @@
 	white-space: nowrap;
 	width: $width;
 	max-width: 100%;
+}
+
+@mixin background-size( $background-size ) {
+	background-size: $background-size;
+	-ms-behavior: url( "../js/backgroundsize.min.htc" );
 }
 
 
