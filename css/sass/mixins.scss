@@ -25,11 +25,9 @@
 
 /* =Media
 ----------------------------------------------- */
-@mixin svg( $filename, $path: '../images/', $background-position: left center, $background-repeat: no-repeat, $background-size: 100% 100% ) {
-	background: url( #{$path}#{$filename}.png );
+@mixin svg( $filename, $path: '../images/', $background-color: transparent, $background-position: left center, $background-repeat: no-repeat, $background-size: 100% 100% ) {
+	background: $background-color url( #{$path}#{$filename}.png ) $background-position $background-repeat;
 	background-image: url( #{$path}#{$filename}.svg ), none;
-	background-position: $background-position;
-	background-repeat: $background-repeat;
 	@include background-size( $background-size );
 }
 
