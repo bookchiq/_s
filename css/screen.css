@@ -25,6 +25,35 @@ of the styles inside media queries.
 ----------------------------------------------- */
 /* =Media query helpers
 ----------------------------------------------- */
+.social-icon {
+  background: #fff;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  height: 32px;
+  -moz-transition: all 400ms;
+  -webkit-transition: all 400ms;
+  -o-transition: all 400ms;
+  transition: all 400ms;
+  list-style: none;
+  width: 32px; }
+  .social-icon svg path {
+    fill: #000; }
+  .no-touch .social-icon:hover {
+    background-color: #000; }
+    .no-touch .social-icon:hover svg path {
+      fill: #fff; }
+
+.social-links {
+  margin: 0; }
+  .social-links .social-link {
+    display: inline-block;
+    margin-right: 20px; }
+    .social-links .social-link:last-child {
+      margin-right: 0; }
+
 /*
 PRINT STYLESHEET
 Feel free to customize this. Remember to add things that won't make

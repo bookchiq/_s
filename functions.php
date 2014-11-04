@@ -118,7 +118,7 @@ function _s_scripts() {
 	// wp_enqueue_script( '_s-webflow', get_template_directory_uri() . '/js/webflow.js', array( 'jquery' ), _S_LATEST_SCRIPT_VERSION, true );
 	
 	// Mobile and accessibility
-	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/modernizr.custom.18416.js', array(), '2.8.2', false );
+	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/modernizr.custom.js', array(), '2.8.3', false );
 	wp_enqueue_script( 'svgeezy', get_template_directory_uri() . '/js/svgeezy.min.js', array(), '1.0', false );
 	wp_enqueue_script( '_s-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 	wp_enqueue_script( '_s-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
@@ -242,6 +242,11 @@ require get_template_directory() . '/inc/jetpack.php';
  * Load utility functions
  */
 require get_template_directory() . '/inc/utility.php';
+
+/**
+ * Add social networks
+ */
+require( get_template_directory() . '/inc/social.php' );
 
 /**
  * Prepare theme options

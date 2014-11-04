@@ -207,28 +207,7 @@ if (!function_exists('redux_init')) :
 		'title' => __('Social Networks', '_s'),
 		'desc' => __('Enter the full URL for each network you want to show. Networks left empty won\'t be displayed. You can display the links throughout the site using the shortcode <code>[' . _S_SHORTCODE_PREFIX . '-social]</code>.', '_s'),
 		'icon' => 'el-icon-thumbs-up',
-		'fields' => array(
-			array(
-				'id' => 'facebook',
-				'type' => 'text',
-				'title' => __('Facebook URL', '_s'),
-			),
-			array(
-				'id' => 'twitter',
-				'type' => 'text',
-				'title' => __('Twitter URL', '_s'),
-			),
-			array(
-				'id' => 'pinterest',
-				'type' => 'text',
-				'title' => __('Pinterest URL', '_s'),
-			),
-			array(
-				'id' => 'instagram',
-				'type' => 'text',
-				'title' => __('Instagram URL', '_s'),
-			),
-		)
+		'fields' => _s_get_social_redux_array(),
 	);
 
 	$sections[] = array(

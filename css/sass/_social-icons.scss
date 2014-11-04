@@ -1,0 +1,58 @@
+.social-icon { // Typically a list item
+	background: #fff;
+	@include border-radius( 50% );
+	height: 32px;
+	@include transition( all 400ms );
+	list-style: none;
+	width: 32px;
+
+	svg {
+		path {
+			fill: #000;
+		}
+	}
+
+	.no-touch &:hover {
+		background-color: #000;
+
+		svg path { fill: #fff; }
+	}
+
+	// Tweaks for specific networks
+	&.facebook {}
+
+	&.twitter {}
+
+	&.pinterest {}
+
+	&.instagram {}
+
+	&.linkedin {}
+
+	&.google {}
+
+	&.youtube {}
+
+	&.yelp {}
+
+	&.stumbleupon {}
+
+	&.email {}
+
+	&.rss {}
+}
+
+
+// These are the ones created with the [_s-social] shortcode
+.social-links {
+	margin: 0;
+	
+	.social-link {
+		display: inline-block;
+		margin-right: 20px;
+
+		&:last-child {
+			margin-right: 0;
+		}		
+	}
+}

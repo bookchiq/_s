@@ -1,0 +1,23 @@
+/** Credits **/
+
+Default icons are from http://linhpham.me/miu/social/#black
+
+They are free for commercial use, but we've also made a donation just to say "thanks."
+
+
+
+/** Philosophy **/
+
+We've removed the circles so they can be used on any kind of background (and circles are easy enough to create in CSS3), so keep that in mind if you add any to the collection.
+
+In order to have maximum flexibility, we're using the actual SVG files in the content (as opposed to making them CSS backgrounds). This lets us change the colors of both the backgrounds and the icons themselves, even granularly (making different parts of the icon different colors, for instance).
+
+
+
+/** Adjustments **/
+
+The CSS for these icons is in the /css/sass/_social-icons.scss file.
+
+Define which networks are shown (and in what order) over at /inc/social.php
+
+If you need to change the output, /inc/shortcodes.php is the spot.

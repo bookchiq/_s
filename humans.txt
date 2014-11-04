@@ -1,20 +1,24 @@
 /* TEAM */
-	Designer:   
-	URI:        http://.com
-	Email:      
-	Twitter:    @
+	Designer:        
+	URI:             http://.com
+	Email:           
+	Twitter:         @
 
-	Developer:  WP Moxie
-	URI:        http://wpmoxie.com
-	Email:      sarah@wpmoxie.com
-	Twitter:    @WPMoxie
+	Developer:       WP Moxie
+	URI:             http://wpmoxie.com
+	Email:           sarah@wpmoxie.com
+	Twitter:         @WPMoxie
 
 /* THANKS */
-	Base Theme: Automattic
-	URI:        http://automattic.com
-	Twitter:    @automattic
+	Base Theme:      Automattic
+	URI:             http://automattic.com
+	Twitter:         @automattic
 
-	Menu Icon:  Timothy Miller
-	URI:        http://tmthymllr.com
-	Dribbble:   https://dribbble.com/shots/1136995-Wirecons-Vector-Icons
-	Twitter:    @tmthymllr
+	Menu Icon:       Timothy Miller
+	URI:             http://tmthymllr.com
+	Dribbble:        https://dribbble.com/shots/1136995-Wirecons-Vector-Icons
+	Twitter:         @tmthymllr
+
+	Social Icons:    Linh Pham
+	URI:             http://linhpham.me/
+	Creative Market: https://creativemarket.com/phdieuli/
