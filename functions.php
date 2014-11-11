@@ -113,9 +113,6 @@ add_action( 'widgets_init', '_s_widgets_init' );
 function _s_scripts() {
 	wp_enqueue_style( '_s-style', get_stylesheet_uri(), array(), _S_LATEST_SCRIPT_VERSION );
 	wp_enqueue_style( '_s-screen', get_template_directory_uri() . '/css/screen.css', array(), _S_LATEST_SCRIPT_VERSION );
-
-	// wp_enqueue_style( '_s-webflow', get_template_directory_uri() . '/css/webflow.css', array(), _S_LATEST_SCRIPT_VERSION );
-	// wp_enqueue_script( '_s-webflow', get_template_directory_uri() . '/js/webflow.js', array( 'jquery' ), _S_LATEST_SCRIPT_VERSION, true );
 	
 	// Mobile and accessibility
 	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/modernizr.custom.js', array(), '2.8.3', false );
@@ -232,11 +229,6 @@ require get_template_directory() . '/inc/extras.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
-
-/**
- * Add Webflow customizations to Visual Composer
- */
-// require get_template_directory() . '/inc/webflow.php';
 
 /**
  * Load utility functions
