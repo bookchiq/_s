@@ -26,7 +26,7 @@ function _s_show_social_links() {
 	foreach ( $social_networks as $network ) {
 		// Check that this setting is populated and should be shown
 		if ( ! empty( $options[ $network['slug'] ] ) && ( true === $network['show_in_account_links'] ) ) {		
-			$out .= '<li class="social-link social-icon ' . $network['slug'] . '"><a href="' . $options[ $network['slug'] ] . '" title="' . $network['name'] . '">' . file_get_contents ( get_template_directory() . '/images/icons/social/' . $network['slug'] . '.svg' ) . '</a></li>';
+			$out .= '<li class="social-link social-icon ' . $network['slug'] . '"><a href="' . $options[ $network['slug'] ] . '" title="' . $network['name'] . '">' . file_get_contents( get_template_directory() . '/images/icons/social/' . $network['slug'] . '.svg' ) . '</a></li>';
 		}
 	}
 	$out = '<ul class="social-links">' . $out . '</ul>';
