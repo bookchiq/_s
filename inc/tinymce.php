@@ -1,7 +1,7 @@
 <?php
 
 function _s_add_editor_styles() {
-	add_editor_style( 'css/editor-style.css' );
+	add_editor_style( 'editor-style.css' );
 }
 add_action( 'init', '_s_add_editor_styles' );
 
