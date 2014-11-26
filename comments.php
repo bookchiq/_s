@@ -64,6 +64,9 @@ if ( post_password_required() ) {
 		<p class="no-comments"><?php _e( 'Comments are closed.', '_s' ); ?></p>
 	<?php endif; ?>
 
-	<?php comment_form( array( 'comment_notes_after' => '' ) ); ?>
+	<?php comment_form( array( 
+		'comment_notes_after' => '',
+		'comment_field'       => '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) . ' <span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
+	) ); ?>
 
 </div><!-- #comments -->
