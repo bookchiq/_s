@@ -42,4 +42,4 @@ function _s_cpt_update_messages( $messages ) {
 	);
 	return $messages;
 }
-add_filter('post_updated_messages', '_s_cpt_update_messages' );
+add_filter( 'post_updated_messages', '_s_cpt_update_messages' );
