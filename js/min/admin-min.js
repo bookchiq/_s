@@ -1,0 +1,1 @@
+jQuery(document).ready(function($){$("#set-post-thumbnail img").each(function(){$(this).css("width","auto").css("max-height","200px")})});

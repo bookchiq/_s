@@ -125,7 +125,7 @@ function _s_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	wp_enqueue_script( '_s-functions', get_template_directory_uri() . '/js/functions-ck.js', array( 'svgeezy' ), _S_LATEST_SCRIPT_VERSION, true );
+	wp_enqueue_script( '_s-functions', get_template_directory_uri() . '/js/min/functions-min.js', array( 'svgeezy' ), _S_LATEST_SCRIPT_VERSION, true );
 
 	// Custom file that the client can add to
 	wp_enqueue_style( 'custom-theme-styles', get_template_directory_uri() . '/css/custom.css' );
@@ -150,8 +150,8 @@ add_action( 'wp_enqueue_scripts', '_s_scripts' );
  * Enqueue admin scripts and styles
  */
 function _s_scripts_admin() {
-	wp_enqueue_style( '_s-admin', get_template_directory_uri() . '/css/admin.css', array(), _S_LATEST_SCRIPT_VERSION );
-	wp_enqueue_script( '_s-admin', get_template_directory_uri() . '/js/admin-ck.js', array( 'jquery' ), _S_LATEST_SCRIPT_VERSION, true );
+	// wp_enqueue_style( '_s-admin', get_template_directory_uri() . '/css/admin.css', array(), _S_LATEST_SCRIPT_VERSION );
+	wp_enqueue_script( '_s-admin', get_template_directory_uri() . '/js/min/admin-min.js', array( 'jquery' ), _S_LATEST_SCRIPT_VERSION, true );
 }
 add_action( 'admin_enqueue_scripts', '_s_scripts_admin' );
 
