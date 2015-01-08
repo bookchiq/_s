@@ -4,14 +4,14 @@
 add_action( 'wp_enqueue_scripts', '_s_typekit_frontend_scripts' );
 function _s_typekit_frontend_scripts() {
 	// Make sure to replace the TypeKit ID in this file
-	wp_enqueue_script( '_s-typekit', get_template_directory_uri() . '/js/typekit-ck.js' );
+	wp_enqueue_script( '_s-typekit', get_template_directory_uri() . '/js/min/typekit-min.js' );
 }
 
 // Disabling until there's a decent fix for the hideous BESbswy issue
 // // Add to the editor
 // add_filter( 'mce_external_plugins', '_s_mce_external_plugins' );
 // function _s_mce_external_plugins($plugin_array){
-// 	$plugin_array['typekit']  =  get_template_directory_uri().'/js/typekit.tinymce-ck.js';
+// 	$plugin_array['typekit']  =  get_template_directory_uri().'/js/min/typekit.tinymce-min.js';
 //     return $plugin_array;
 // }
 
