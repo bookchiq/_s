@@ -39,17 +39,6 @@ function _s_show_social_links() {
  * [_s-opt-in]
  */
 add_shortcode( _S_SHORTCODE_PREFIX . '-opt-in', '_s_show_opt_in' );
-function _s_show_opt_in() {	
-	$out = '';
-
-	$options = get_option( _S_OPTIONS );
-
-	if ( ! empty( $options['opt_in'] ) ) {
-		$out .= '<div class="opt-in">' . $options['opt_in'] . '</div>';
-	}
-	
-	return $out;
-}
 function _s_show_opt_in( $atts ) {
 	extract( shortcode_atts( array(
 		'button_text' => null,
