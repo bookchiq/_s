@@ -21,3 +21,8 @@ if ( ! function_exists( 'log_it' ) ) {
 		error_log( $output );
 	}
 }
+
+function _s_enable_jetpack_dev_mode() {
+    add_filter( 'jetpack_development_mode', '__return_true' );
+}
+add_action( 'plugins_loaded', '_s_enable_jetpack_dev_mode' );
