@@ -49,7 +49,7 @@ if (!function_exists('redux_init')) :
 
 		<div>
 			<ul class="theme-info">
-				<li><?php printf( __('By %s','_s'), $ct->display('Author') ); ?></li>
+				<li><?php printf( __( 'By %s','_s'), $ct->display('Author') ); ?></li>
 				<li><?php printf( __('Version %s','_s'), $ct->display('Version') ); ?></li>
 				<li><?php echo '<strong>'.__('Tags', '_s').':</strong> '; ?><?php printf( $ct->display('Tags') ); ?></li>
 			</ul>
@@ -204,34 +204,119 @@ if (!function_exists('redux_init')) :
 	$sections = array();
 
 	$sections[] = array(
-		'title' => __('Social Networks', '_s'),
-		'desc' => __('Enter the full URL for each network you want to show. Networks left empty won\'t be displayed. You can display the links throughout the site using the shortcode <code>[' . _S_SHORTCODE_PREFIX . '-social]</code>.', '_s'),
+		'title' => __( 'Social Networks', '_s' ),
+		'desc' => __( 'Enter the full URL for each network you want to show. Networks left empty won\'t be displayed. You can display the links throughout the site using the shortcode <code>[' . _S_SHORTCODE_PREFIX . '-social]</code>.', '_s' ),
 		'icon' => 'el-icon-thumbs-up',
 		'fields' => _s_get_social_redux_array(),
 	);
 
 	$sections[] = array(
-		'title' => __('Opt-In', '_s'),
-		'desc' => __('This section lets you set up your code in one place and use it all over the site with the shortcode <code>[' . _S_SHORTCODE_PREFIX . '-opt-in]</code>.', '_s'),
+		'title' => __( 'Opt-In', '_s' ),
+		'desc' => __( 'This section lets you set up your code in one place and use it all over the site with the shortcode <code>[' . _S_SHORTCODE_PREFIX . '-opt-in]</code>.', '_s' ),
 		'icon' => 'el-icon-filter',
 		'fields' => array(
 			array(
 				'id' => 'opt_in',
 				'type' => 'textarea',
-				'title' => __('Opt-in code', '_s'),
+				'title' => __( 'Opt-in code', '_s' ),
 			),
 		)
 	);
 
 	$sections[] = array(
-		'title' => __('Site Footer', '_s'),
-		'desc' => __('The details in this section affect what\'s shown in the global site footer.', '_s'),
+		'title' => __( 'In-Site Microcopy', '_s' ),
+		'desc' => __( 'This section lets you set up the microcopy and general content that shows up throughout the site.', '_s' ),
+		'icon' => 'el-icon-filter',
+		'fields' => array(
+			// Search results
+			array(
+				'id' => 'section-start',
+				'type' => 'section',
+				'title' => __( 'Search Results', '_s' ),
+				'indent' => true,
+			),
+			array(
+				'id' => 'search_results_headline',
+				'type' => 'text',
+				'title' => __( 'Results headline', '_s' ),
+				'desc' => __( 'You can use <code>%s</code> to represent the search phrase.', '_s' ),
+				'default' => __( 'Searching for %s...', '_s' ),
+			),
+			array(
+				'id'     => 'section-end',
+				'type'   => 'section',
+				'indent' => false,
+			),
+			// Archives
+			// Archive titles are now determined by the_archive_title() and can be filtered by get_the_archive_title, but I haven't written that functionality
+			// array(
+			// 	'id' => 'section-start',
+			// 	'type' => 'section',
+			// 	'title' => __( 'Archives', '_s' ),
+			// 	'indent' => true,
+			// ),
+			// array(
+			// 	'id' => 'archive_category_headline',
+			// 	'type' => 'text',
+			// 	'title' => __( 'Headlines for Category & Tag Archives', '_s' ),
+			// 	'desc' => __( 'You can use <code>%s</code> to represent the category/tag.', '_s' ),
+			// 	'default' => __( '%s', '_s' ),
+			// ),
+			// array(
+			// 	'id' => 'archive_date_headline',
+			// 	'type' => 'text',
+			// 	'title' => __( 'Headlines for Date-Based Archives', '_s' ),
+			// 	'desc' => __( 'Use PHP-style date formatting&mdash;for example, <code>Published F, Y</code> would produce a headline like <code>Published March, 2016</code>.', '_s' ),
+			// 	'default' => __( '%s', '_s' ),
+			// ),
+			// array(
+			// 	'id'     => 'section-end',
+			// 	'type'   => 'section',
+			// 	'indent' => false,
+			// ),
+			// 404 page
+			array(
+				'id' => 'section-start',
+				'type' => 'section',
+				'title' => __( 'Page Not Found', '_s' ),
+				'indent' => true,
+				'desc' => __( 'This page is displayed when a page address is typed in incorrectly or a page is moved while old links still exist.', '_s' ),
+			),
+			array(
+				'id' => 'four_oh_four_headline',
+				'type' => 'text',
+				'title' => __( 'Headline', '_s' ),
+				'default' => __( 'Oops! That page can’t be found.', '_s' ),
+			),
+			array(
+				'id' => 'four_oh_four_intro',
+				'type' => 'editor',
+				'title' => __( 'Main copy', '_s' ),
+				'default' => __( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', '_s' ),
+			),
+			array(
+				'id' => 'note',
+				'type' => 'info',
+				'title' => __( 'Note', '_s' ),
+				'desc' => __( 'You can choose which widgets show up on the error page by <a href="' . get_admin_url() . 'widgets.php">customizing the "Page Not Found" widget area</a>.', '_s' ),
+			),
+			array(
+				'id'     => 'section-end',
+				'type'   => 'section',
+				'indent' => false,
+			),
+		)
+	);
+
+	$sections[] = array(
+		'title' => __( 'Site Footer', '_s' ),
+		'desc' => __( 'The details in this section affect what\'s shown in the global site footer.', '_s' ),
 		'icon' => 'el-icon-website',
 		'fields' => array(
 			array(
 				'id' => 'footer_credits',
 				'type' => 'editor',
-				'title' => __('Credits', '_s'),
+				'title' => __( 'Credits', '_s' ),
 			),
 		)
 	);
@@ -242,8 +327,8 @@ if (!function_exists('redux_init')) :
 
 	// $sections[] = array(
 	// 	'icon' => 'el-icon-info-sign',
-	// 	'title' => __('Theme Information', '_s'),
-	// 	'desc' => __('<p class="description">This is the Description. Again HTML is allowed</p>', '_s'),
+	// 	'title' => __( 'Theme Information', '_s' ),
+	// 	'desc' => __( '<p class="description">This is the Description. Again HTML is allowed</p>', '_s' ),
 	// 	'fields' => array(
 	// 		array(
 	// 			'id'=>'raw_new_info',
@@ -257,7 +342,7 @@ if (!function_exists('redux_init')) :
 	if(file_exists(trailingslashit(dirname(__FILE__)) . 'README.html')) {
 		$tabs['docs'] = array(
 			'icon' => 'el-icon-book',
-				'title' => __('Documentation', '_s'),
+				'title' => __( 'Documentation', '_s' ),
 			'content' => nl2br(file_get_contents(trailingslashit(dirname(__FILE__)) . 'README.html'))
 		);
 	}

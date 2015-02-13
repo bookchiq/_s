@@ -13,7 +13,15 @@ get_header(); ?>
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">
-				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', '_s' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+				<h1 class="page-title"><?php
+					$options = get_option( _S_OPTIONS );
+					if ( ! empty( $options['search_results_headline'] ) ) {
+						$search_results_headline = $options['search_results_headline'];
+					} else {
+						$search_results_headline = __( 'Search Results for: %s', '_s' );
+					}
+					printf( $search_results_headline, '<span class="search-query">' . get_search_query() . '</span>' );
+				?></h1>
 			</header><!-- .page-header -->
 
 			<?php /* Start the Loop */ ?>

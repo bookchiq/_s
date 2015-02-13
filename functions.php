@@ -112,6 +112,16 @@ function _s_widgets_init() {
 		'before_title'  => '<h1 class="widget-title">',
 		'after_title'   => '</h1>',
 	) );
+
+	register_sidebar( array(
+		'name'          => __( 'Page Not Found', '_s' ),
+		'id'            => 'four-oh-four',
+		'description'   => __( 'These widgets are shown on the "Page Not Found" error page. It\'s a great place to feature your most popular content, a search box, and category archives.', '_s' ),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h1 class="widget-title">',
+		'after_title'   => '</h1>',
+	) );
 }
 add_action( 'widgets_init', '_s_widgets_init' );
 
@@ -251,16 +261,16 @@ require( get_template_directory() . '/inc/social.php' );
 /**
  * Prepare theme options
  */
-// // Only load the class here if it's not included as a plugin
-// if ( ! class_exists( 'ReduxFramework' ) && file_exists( dirname( __FILE__ ) . '/inc/redux/ReduxCore/framework.php' ) ) {
-// 	require_once( dirname( __FILE__ ) . '/inc/redux/ReduxCore/framework.php' );
-// }
-// // The config file
-// if ( ! isset( $redux_demo ) && file_exists( dirname( __FILE__ ) . '/inc/redux-config.php' ) ) {
-// 	require_once( dirname( __FILE__ ) . '/inc/redux-config.php' );
-// }
-// // Some custom functions for getting and displaying the options
-// require( get_template_directory() . '/inc/redux-functions.php' );
+// Only load the class here if it's not included as a plugin
+if ( ! class_exists( 'ReduxFramework' ) && file_exists( dirname( __FILE__ ) . '/inc/redux/ReduxCore/framework.php' ) ) {
+	require_once( dirname( __FILE__ ) . '/inc/redux/ReduxCore/framework.php' );
+}
+// The config file
+if ( ! isset( $redux_demo ) && file_exists( dirname( __FILE__ ) . '/inc/redux-config.php' ) ) {
+	require_once( dirname( __FILE__ ) . '/inc/redux-config.php' );
+}
+// Some custom functions for getting and displaying the options
+require( get_template_directory() . '/inc/redux-functions.php' );
 
 /**
  * Add custom shortcodes
