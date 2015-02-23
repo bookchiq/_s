@@ -130,7 +130,6 @@ add_action( 'widgets_init', '_s_widgets_init' );
  */
 function _s_scripts() {
 	wp_enqueue_style( '_s-style', get_stylesheet_uri(), array(), _S_LATEST_SCRIPT_VERSION );
-	wp_enqueue_style( '_s-screen', get_template_directory_uri() . '/css/screen.css', array(), _S_LATEST_SCRIPT_VERSION );
 	
 	// Mobile and accessibility
 	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/modernizr.custom.js', array(), '2.8.3', false );
@@ -146,7 +145,9 @@ function _s_scripts() {
 	wp_enqueue_script( '_s-functions', get_template_directory_uri() . '/js/min/functions-min.js', array( 'svgeezy' ), _S_LATEST_SCRIPT_VERSION, true );
 
 	// Custom file that the client can add to
-	wp_enqueue_style( 'custom-theme-styles', get_template_directory_uri() . '/css/custom.css' );
+	if ( file_exists( get_template_directory() . '/css/custom.css' ) ) {
+		wp_enqueue_style( 'custom-theme-styles', get_template_directory_uri() . '/css/custom.css' );
+	}
 }
 add_action( 'wp_enqueue_scripts', '_s_scripts' );
 
