@@ -44,6 +44,11 @@ function _s_show_opt_in( $atts ) {
 		'button_text' => null,
 		'form_id' => null,
 		'form_id_field' => null,
+		'mc_group' => null,
+		'placeholder_email' => null,
+		'placeholder_email_alt' => null,
+		'placeholder_fname' => null,
+		'placeholder_lname' => null,
 	), $atts ) );
 
 	$out = '';
@@ -52,8 +57,54 @@ function _s_show_opt_in( $atts ) {
 	$opt_in_code = $options['opt_in'];
 
 	if ( ! empty( $opt_in_code ) ) {
+		// Replace the button text
 		if ( ! empty( $button_text ) ) {
 			$opt_in_code = preg_replace( '/(<input type="submit".*?)value=".*?"(.*?>)/', '\1value="' . $button_text .'"\2', $opt_in_code );	
+		}
+
+		// Add MailChimp group ID
+		// This assumes that it's been provided with the replacements noted below to escape the grumpy square brackets
+		if ( ! empty( $mc_group ) ) {
+			$mc_group = str_replace( '~#', '[', $mc_group );
+			$mc_group = str_replace( '#~', ']', $mc_group );
+			$opt_in_code = preg_replace( '/(<input type="submit".*?>)/', '<input type="hidden" name="' . $mc_group . '" value="1">\1', $opt_in_code );
+		}
+
+		// Add/replace a placeholder for the email field
+		if ( ! empty( $placeholder_email ) ) {
+			// If there's already a placeholder element
+			if ( preg_match( '~(name="EMAIL")(.[^>]*?)placeholder=".*?"~', $opt_in_code, $matches_placeholder_email ) ) {
+				$opt_in_code = preg_replace( '~(name="EMAIL")(.[^>]*?)placeholder=".*?"~', '\1\2placeholder="' . $placeholder_email . '"', $opt_in_code );
+			// Otherwise, add one
+			} else {
+				$opt_in_code = preg_replace( '~(name="EMAIL")(.*?)>~', '\1\2placeholder="' . $placeholder_email . '">', $opt_in_code );
+			}
+
+			if ( ! empty( $placeholder_email_alt ) ) {
+				$opt_in_code = preg_replace( '~(name="EMAIL" .*?placeholder=".*?")~', '\1 data-placeholder-alt="' . $placeholder_email_alt . '"', $opt_in_code );
+			}
+		}
+
+		// Add/replace a placeholder for the fname field
+		if ( ! empty( $placeholder_fname ) ) {
+			// If there's already a placeholder element
+			if ( preg_match( '~(name="FNAME")(.[^>]*?)placeholder=".*?"~', $opt_in_code, $matches_placeholder_fname ) ) {
+				$opt_in_code = preg_replace( '~(name="FNAME")(.[^>]*?)placeholder=".*?"~', '\1\2placeholder="' . $placeholder_fname . '"', $opt_in_code );
+			// Otherwise, add one
+			} else {
+				$opt_in_code = preg_replace( '~(name="FNAME")(.*?)>~', '\1\2placeholder="' . $placeholder_fname . '">', $opt_in_code );
+			}
+		}
+
+		// Add/replace a placeholder for the lname field
+		if ( ! empty( $placeholder_lname ) ) {
+			// If there's already a placeholder element
+			if ( preg_match( '~(name="LNAME")(.[^>]*?)placeholder=".*?"~', $opt_in_code, $matches_placeholder_lname ) ) {
+				$opt_in_code = preg_replace( '~(name="LNAME")(.[^>]*?)placeholder=".*?"~', '\1\2placeholder="' . $placeholder_lname . '"', $opt_in_code );
+			// Otherwise, add one
+			} else {
+				$opt_in_code = preg_replace( '~(name="LNAME")(.*?)>~', '\1\2placeholder="' . $placeholder_lname . '">', $opt_in_code );
+			}
 		}
 		
 		if ( ! empty( $form_id ) && ! empty( $form_id_field ) ) {
