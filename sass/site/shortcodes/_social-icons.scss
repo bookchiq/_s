@@ -6,6 +6,10 @@
 	list-style: none;
 	width: 32px;
 
+	a {
+		outline: none;
+	}
+
 	svg {
 		path {
 			fill: #000;
