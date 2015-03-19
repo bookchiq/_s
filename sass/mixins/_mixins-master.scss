@@ -127,6 +127,10 @@
 	}
 }
 
+@mixin tracking( $tracking: 35 ) {
+	$letter-spacing: $tracking/1000;
+	letter-spacing: #{$letter-spacing}em;
+}
 
 // Don't forget: add these fonts to the _s_change_tinymce_fonts() function in /inc/tinymce.php
 
