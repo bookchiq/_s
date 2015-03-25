@@ -166,7 +166,7 @@ if (!function_exists('redux_init')) :
 
 	// Set a custom page slug for options page (wp-admin/themes.php?page=***).
 	// Default: redux_options
-	$args['page_slug'] = '_s_options';
+	$args['page_slug'] = 'wpmoxie_options';
 
 	$args['default_show'] = true;
 	$args['default_mark'] = '*';
