@@ -64,6 +64,14 @@
 /* Small menu. */
 .menu-toggle {
 	display: none;
+
+	&:after {
+		content: 'Show Menu';
+
+		.toggled & {
+			content: 'Hide Menu';
+		}
+	}
 }
 
 @media screen and (max-width: 600px) {

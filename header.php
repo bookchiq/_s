@@ -34,7 +34,7 @@
 			</div>
 
 			<nav id="site-navigation" class="main-navigation" role="navigation">
-				<button class="menu-toggle"><?php _e( 'Show Menu', '_s' ); ?></button>
+				<button class="menu-toggle"><!-- Button text is set in the _menus.scss file --></button>
 				<?php wp_nav_menu( array( 
 					'theme_location'  => 'primary',
 					'container_class' => 'primary-menu',
