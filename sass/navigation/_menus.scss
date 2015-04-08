@@ -68,7 +68,7 @@
 }
 
 /* Small menu. */
-.menu-toggle,
+.menu-toggle {
 	display: none;
 
 	&:after {
@@ -82,11 +82,12 @@
 
 @media screen and (min-width: 37.5em) {
 	.menu-toggle {
-	.main-navigation.toggled .nav-menu {
-		display: none;
-	}
-	.main-navigation ul {
-		display: block;
+		.main-navigation.toggled .nav-menu {
+			display: none;
+		}
+		.main-navigation ul {
+			display: block;
+		}
 	}
 }
 
