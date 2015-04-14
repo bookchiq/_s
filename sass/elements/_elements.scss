@@ -12,6 +12,11 @@ body {
 	background: $color__background-body; /* Fallback for when there is no custom background color defined. */
 }
 
+.site {
+	max-width: 100%;
+	overflow: hidden;
+}
+
 blockquote, q {
 	quotes: "" "";
 
