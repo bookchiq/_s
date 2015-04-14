@@ -35,6 +35,13 @@ add_filter( 'body_class', '_s_add_blog_post_body_classes' );
 add_filter( 'post_class', '_s_add_blog_post_body_classes' );
 
 
+// Remove Visual Composer frontend editor (it doesn't always play nicely with the custom themes)
+function _s_vc_remove_frontend_links() {
+	vc_disable_frontend(); // this will disable frontend editor
+}
+add_action( 'vc_after_init', '_s_vc_remove_frontend_links' );
+
+
 /**
  * Change default fields, add placeholder and change type attributes.
  *
