@@ -217,7 +217,8 @@ if (!function_exists('redux_init')) :
 		'fields' => array(
 			array(
 				'id' => 'opt_in',
-				'type' => 'textarea',
+				'type' => 'ace_editor',
+				'mode' => 'html',
 				'title' => __( 'Opt-in code', '_s' ),
 			),
 		)
