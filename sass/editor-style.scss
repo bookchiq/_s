@@ -12,10 +12,6 @@
 @import "variables-site/variables-site";
 @import "mixins/mixins-master";
 
-html {
-	font-size: 62.5%; // Sets up the Base 10 stuff
-}
-
 body#tinymce.wp-editor {
 	// @include century-gothic;
 	@include font-size( 16 );
