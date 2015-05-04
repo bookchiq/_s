@@ -9,9 +9,6 @@
 	5.1 Captions
 	5.2 Galleries
 --------------------------------------------------------------*/
-html {
-  font-size: 62.5%; }
-
 body#tinymce.wp-editor {
   font-size: 16px;
   font-size: 1.6rem;
@@ -20,6 +17,10 @@ body#tinymce.wp-editor {
 /*--------------------------------------------------------------
 1.0 Typography
 --------------------------------------------------------------*/
+/* Add webfont declarations here */
+html {
+  font-size: 62.5%; }
+
 body,
 button,
 input,
@@ -31,14 +32,17 @@ textarea {
   font-size: 1.6rem;
   line-height: 1.5; }
 
+::-moz-selection {
+  background-color: #B3D8FD; }
+
+::selection {
+  background-color: #B3D8FD; }
+
 h1, h2, h3, h4, h5, h6 {
   clear: both; }
 
 p {
   margin-bottom: 1.5em; }
-
-b, strong {
-  font-weight: bold; }
 
 dfn, cite, em, i {
   font-style: italic; }
@@ -73,9 +77,6 @@ mark, ins {
   background: #fff9c0;
   text-decoration: none; }
 
-small {
-  font-size: 75%; }
-
 big {
   font-size: 125%; }
 
@@ -95,12 +96,14 @@ body {
   background: #fff;
   /* Fallback for when there is no custom background color defined. */ }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: ""; }
+.site {
+  max-width: 100%;
+  overflow: hidden; }
 
 blockquote, q {
   quotes: "" ""; }
+  blockquote:before, blockquote:after, q:before, q:after {
+    content: ""; }
 
 hr {
   background-color: #ccc;
@@ -200,7 +203,7 @@ object {
   max-width: 100%; }
 
 /*--------------------------------------------------------------
-12.1 Captions
+## Captions
 --------------------------------------------------------------*/
 .wp-caption {
   margin-bottom: 1.5em;
@@ -216,7 +219,7 @@ object {
   text-align: center; }
 
 /*--------------------------------------------------------------
-12.2 Galleries
+## Galleries
 --------------------------------------------------------------*/
 .gallery {
   margin-bottom: 1.5em; }
@@ -226,30 +229,22 @@ object {
   text-align: center;
   vertical-align: top;
   width: 100%; }
-
-.gallery-columns-2 .gallery-item {
-  max-width: 50%; }
-
-.gallery-columns-3 .gallery-item {
-  max-width: 33.33%; }
-
-.gallery-columns-4 .gallery-item {
-  max-width: 25%; }
-
-.gallery-columns-5 .gallery-item {
-  max-width: 20%; }
-
-.gallery-columns-6 .gallery-item {
-  max-width: 16.66%; }
-
-.gallery-columns-7 .gallery-item {
-  max-width: 14.28%; }
-
-.gallery-columns-8 .gallery-item {
-  max-width: 12.5%; }
-
-.gallery-columns-9 .gallery-item {
-  max-width: 11.11%; }
+  .gallery-columns-2 .gallery-item {
+    max-width: 50%; }
+  .gallery-columns-3 .gallery-item {
+    max-width: 33.33%; }
+  .gallery-columns-4 .gallery-item {
+    max-width: 25%; }
+  .gallery-columns-5 .gallery-item {
+    max-width: 20%; }
+  .gallery-columns-6 .gallery-item {
+    max-width: 16.66%; }
+  .gallery-columns-7 .gallery-item {
+    max-width: 14.28%; }
+  .gallery-columns-8 .gallery-item {
+    max-width: 12.5%; }
+  .gallery-columns-9 .gallery-item {
+    max-width: 11.11%; }
 
 .gallery-caption {
   display: block; }

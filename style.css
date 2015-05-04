@@ -40,6 +40,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 12.0 Media
 	12.1 Captions
 	12.2 Galleries
+13.0 Shortcodes
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 1.0 Normalize
@@ -223,6 +224,10 @@ th {
 /*--------------------------------------------------------------
 2.0 Typography
 --------------------------------------------------------------*/
+/* Add webfont declarations here */
+html {
+  font-size: 62.5%; }
+
 body,
 button,
 input,
@@ -234,14 +239,17 @@ textarea {
   font-size: 1.6rem;
   line-height: 1.5; }
 
+::-moz-selection {
+  background-color: #B3D8FD; }
+
+::selection {
+  background-color: #B3D8FD; }
+
 h1, h2, h3, h4, h5, h6 {
   clear: both; }
 
 p {
   margin-bottom: 1.5em; }
-
-b, strong {
-  font-weight: bold; }
 
 dfn, cite, em, i {
   font-style: italic; }
@@ -276,9 +284,6 @@ mark, ins {
   background: #fff9c0;
   text-decoration: none; }
 
-small {
-  font-size: 75%; }
-
 big {
   font-size: 125%; }
 
@@ -298,12 +303,14 @@ body {
   background: #fff;
   /* Fallback for when there is no custom background color defined. */ }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: ""; }
+.site {
+  max-width: 100%;
+  overflow: hidden; }
 
 blockquote, q {
   quotes: "" ""; }
+  blockquote:before, blockquote:after, q:before, q:after {
+    content: ""; }
 
 hr {
   background-color: #ccc;
@@ -358,7 +365,8 @@ input[type="submit"] {
   font-size: 1.2rem;
   line-height: 1;
   padding: .6em 1em .4em;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8); }
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+  vertical-align: middle; }
 
 button:hover,
 input[type="button"]:hover,
@@ -384,9 +392,10 @@ input[type="url"],
 input[type="password"],
 input[type="search"],
 textarea {
-  color: #666;
   border: 1px solid #ccc;
-  border-radius: 3px; }
+  border-radius: 3px;
+  color: #666;
+  vertical-align: middle; }
 
 input[type="text"]:focus,
 input[type="email"]:focus,
@@ -411,7 +420,7 @@ textarea {
 5.0 Navigation
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-5.1 Links
+## Links
 --------------------------------------------------------------*/
 a {
   color: royalblue; }
@@ -425,7 +434,7 @@ a {
     outline: 0; }
 
 /*--------------------------------------------------------------
-5.2 Menus
+## Menus
 --------------------------------------------------------------*/
 .main-navigation {
   clear: both;
@@ -446,11 +455,12 @@ a {
       .main-navigation ul ul ul {
         left: -999em;
         top: 0; }
-      .main-navigation ul ul li:hover > ul {
+      .main-navigation ul ul li:hover > ul, .main-navigation ul ul li.focus > ul {
         left: 100%; }
       .main-navigation ul ul a {
         width: 200px; }
-    .main-navigation ul li:hover > ul {
+    .main-navigation ul li:hover > ul,
+    .main-navigation ul li.focus > ul {
       left: auto; }
   .main-navigation li {
     float: left;
@@ -462,26 +472,26 @@ a {
 /* Small menu. */
 .menu-toggle {
   display: none; }
+  .menu-toggle:after {
+    content: 'Show Menu'; }
+    .toggled .menu-toggle:after {
+      content: 'Hide Menu'; }
 
-@media screen and (max-width: 600px) {
-  .menu-toggle,
-  .main-navigation.toggled .nav-menu {
-    display: block; }
-
-  .main-navigation ul {
-    display: none; } }
-.site-main .comment-navigation,
-.site-main .posts-navigation,
-.site-main .post-navigation {
+@media screen and (min-width: 37.5em) {
+  .menu-toggle .main-navigation.toggled .nav-menu {
+    display: none; }
+  .menu-toggle .main-navigation ul {
+    display: block; } }
+.site-main .comment-navigation, .site-main
+.posts-navigation, .site-main
+.post-navigation {
   margin: 0 0 1.5em;
   overflow: hidden; }
-
 .comment-navigation .nav-previous,
 .posts-navigation .nav-previous,
 .post-navigation .nav-previous {
   float: left;
   width: 50%; }
-
 .comment-navigation .nav-next,
 .posts-navigation .nav-next,
 .post-navigation .nav-next {
@@ -591,7 +601,7 @@ a {
       padding-right: 0; } }
 
 /*--------------------------------------------------------------
-10.1 Posts and pages
+## Posts and pages
 --------------------------------------------------------------*/
 .sticky {
   display: block; }
@@ -617,14 +627,14 @@ a {
   margin: 0 0 1.5em; }
 
 /*--------------------------------------------------------------
-10.2 Asides
+## Asides
 --------------------------------------------------------------*/
 .blog .format-aside .entry-title,
 .archive .format-aside .entry-title {
   display: none; }
 
 /*--------------------------------------------------------------
-10.3 Comments
+## Comments
 --------------------------------------------------------------*/
 .comment-content a {
   word-wrap: break-word; }
@@ -647,6 +657,8 @@ a {
   transition: all 400ms;
   list-style: none;
   width: 32px; }
+  .social-icon a {
+    outline: none; }
   .social-icon svg path {
     fill: #000; }
   .no-touch .social-icon:hover {
@@ -693,7 +705,7 @@ object {
   max-width: 100%; }
 
 /*--------------------------------------------------------------
-12.1 Captions
+## Captions
 --------------------------------------------------------------*/
 .wp-caption {
   margin-bottom: 1.5em;
@@ -709,7 +721,7 @@ object {
   text-align: center; }
 
 /*--------------------------------------------------------------
-12.2 Galleries
+## Galleries
 --------------------------------------------------------------*/
 .gallery {
   margin-bottom: 1.5em; }
@@ -719,30 +731,26 @@ object {
   text-align: center;
   vertical-align: top;
   width: 100%; }
-
-.gallery-columns-2 .gallery-item {
-  max-width: 50%; }
-
-.gallery-columns-3 .gallery-item {
-  max-width: 33.33%; }
-
-.gallery-columns-4 .gallery-item {
-  max-width: 25%; }
-
-.gallery-columns-5 .gallery-item {
-  max-width: 20%; }
-
-.gallery-columns-6 .gallery-item {
-  max-width: 16.66%; }
-
-.gallery-columns-7 .gallery-item {
-  max-width: 14.28%; }
-
-.gallery-columns-8 .gallery-item {
-  max-width: 12.5%; }
-
-.gallery-columns-9 .gallery-item {
-  max-width: 11.11%; }
+  .gallery-columns-2 .gallery-item {
+    max-width: 50%; }
+  .gallery-columns-3 .gallery-item {
+    max-width: 33.33%; }
+  .gallery-columns-4 .gallery-item {
+    max-width: 25%; }
+  .gallery-columns-5 .gallery-item {
+    max-width: 20%; }
+  .gallery-columns-6 .gallery-item {
+    max-width: 16.66%; }
+  .gallery-columns-7 .gallery-item {
+    max-width: 14.28%; }
+  .gallery-columns-8 .gallery-item {
+    max-width: 12.5%; }
+  .gallery-columns-9 .gallery-item {
+    max-width: 11.11%; }
 
 .gallery-caption {
   display: block; }
+
+/*--------------------------------------------------------------
+13.0 Shortcodes
+--------------------------------------------------------------*/

@@ -1,3 +1,5 @@
+@import "webfonts";
+
 html {
 	font-size: 62.5%; // Sets up the Base 10 stuff
 }
@@ -11,6 +13,13 @@ textarea {
 	font-family: $font__main;
 	@include font-size(16);
 	line-height: $font__line-height-body;
+}
+
+::-moz-selection {
+	background-color: $color__text-selection;
+}
+::selection {
+	background-color: $color__text-selection;
 }
 
 @import "headings";
