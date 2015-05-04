@@ -24,7 +24,7 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
-	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', '_s' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', '_s' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
 		<div class="wrap">
@@ -34,11 +34,8 @@
 			</div>
 
 			<nav id="site-navigation" class="main-navigation" role="navigation">
-				<button class="menu-toggle"><!-- Button text is set in the _menus.scss file --></button>
-				<?php wp_nav_menu( array( 
-					'theme_location'  => 'primary',
-					'container_class' => 'primary-menu',
-				) ); ?>
+				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Explore', '_s' ); ?></button>
+				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 			</nav><!-- #site-navigation -->
 		</div>
 	</header><!-- #masthead -->

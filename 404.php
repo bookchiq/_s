@@ -18,7 +18,7 @@ $options = get_option( _S_OPTIONS );
 						if ( ! empty( $options['four_oh_four_headline'] ) ) {
 							$four_oh_four_headline = $options['four_oh_four_headline'];
 						} else {
-							$four_oh_four_headline = __( 'Oops! That page can&rsquo;t be found.', '_s' );;
+							$four_oh_four_headline = esc_html__( 'Oops! That page can&rsquo;t be found.', '_s' );
 						}
 						echo $four_oh_four_headline;
 					?></h1>
@@ -29,7 +29,7 @@ $options = get_option( _S_OPTIONS );
 						if ( ! empty( $options['four_oh_four_intro'] ) ) {
 							$four_oh_four_intro = $options['four_oh_four_intro'];
 						} else {
-							$four_oh_four_intro = __( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', '_s' );;
+							$four_oh_four_intro = esc_html__( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', '_s' );
 						}
 						echo $four_oh_four_intro;
 					?></p>
@@ -40,22 +40,22 @@ $options = get_option( _S_OPTIONS );
 
 							<?php the_widget( 'WP_Widget_Recent_Posts' ); ?>
 
-							<?php if ( _s_categorized_blog() ) : // Only show the widget if site has multiple categories. ?>
-							<div class="widget widget_categories">
-								<h2 class="widgettitle"><?php _e( 'Most Used Categories', '_s' ); ?></h2>
-								<ul>
-								<?php
-									wp_list_categories( array(
-										'orderby'    => 'count',
-										'order'      => 'DESC',
-										'show_count' => 1,
-										'title_li'   => '',
-										'number'     => 10,
-									) );
-								?>
-								</ul>
-							</div><!-- .widget -->
-							<?php endif; ?>
+					<?php if ( _s_categorized_blog() ) : // Only show the widget if site has multiple categories. ?>
+					<div class="widget widget_categories">
+						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', '_s' ); ?></h2>
+						<ul>
+						<?php
+							wp_list_categories( array(
+								'orderby'    => 'count',
+								'order'      => 'DESC',
+								'show_count' => 1,
+								'title_li'   => '',
+								'number'     => 10,
+							) );
+						?>
+						</ul>
+					</div><!-- .widget -->
+					<?php endif; ?>
 
 							<?php
 								/* translators: %1$s: smiley */
