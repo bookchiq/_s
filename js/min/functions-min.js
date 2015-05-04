@@ -1,1 +1,1 @@
-svgeezy.init("nocheck","png");
+svgeezy.init("nocheck","png"),jQuery(document).ready(function($){$(".menu-toggle").click(function(e){"Explore"==$(this).text()?$(this).text("Hide Menu"):"Hide Menu"==$(this).text()&&$(this).text("Explore")})});

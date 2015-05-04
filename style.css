@@ -470,17 +470,17 @@ a {
     text-decoration: none; }
 
 /* Small menu. */
-.menu-toggle {
+@media only screen and (min-width: 750px) {
+  .menu-toggle {
+    display: none; } }
+.main-navigation .nav-menu {
   display: none; }
-  .menu-toggle:after {
-    content: 'Show Menu'; }
-    .toggled .menu-toggle:after {
-      content: 'Hide Menu'; }
 
-@media screen and (min-width: 37.5em) {
-  .menu-toggle .main-navigation.toggled .nav-menu {
-    display: none; }
-  .menu-toggle .main-navigation ul {
+.main-navigation.toggled .nav-menu {
+  display: block; }
+
+@media only screen and (min-width: 750px) {
+  .main-navigation .nav-menu {
     display: block; } }
 .site-main .comment-navigation, .site-main
 .posts-navigation, .site-main
