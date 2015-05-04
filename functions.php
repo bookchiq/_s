@@ -8,10 +8,20 @@
 // Useful global constants
 define( '_S_DESIGNER_TWITTER_HANDLE', 'wpmoxie' );
 define( '_S_LATEST_SCRIPT_VERSION', date( 'Ymdhis' ) ); // Increment on every load for development only
-// define( '_S_LATEST_SCRIPT_VERSION', '20131030a' );
+// define( '_S_LATEST_SCRIPT_VERSION', '20150504' );
 define( '_S_OPTIONS', '_s_' );
 define( '_S_SHORTCODE_PREFIX', '_s' );
 define( '_S_VERSION', wp_get_theme()->get( 'Version' ) );
+
+/**
+ * Add social networks
+ */
+require( get_template_directory() . '/inc/social.php' );
+
+/**
+ * Add Redux Framework & extras
+ */
+require get_template_directory() . '/admin/admin-init.php';
 
 /**
 * Add humans.txt to the <head> element.
@@ -255,23 +265,12 @@ require get_template_directory() . '/inc/jetpack.php';
 require get_template_directory() . '/inc/utility.php';
 
 /**
- * Add social networks
- */
-require( get_template_directory() . '/inc/social.php' );
-
-/**
  * Prepare theme options
  */
-// Only load the class here if it's not included as a plugin
-if ( ! class_exists( 'ReduxFramework' ) && file_exists( dirname( __FILE__ ) . '/inc/redux/ReduxCore/framework.php' ) ) {
-	require_once( dirname( __FILE__ ) . '/inc/redux/ReduxCore/framework.php' );
+if ( class_exists( 'ReduxFramework' ) ) {
+	// Some custom functions for getting and displaying the options
+	require( get_template_directory() . '/inc/redux-functions.php' );
 }
-// The config file
-if ( ! isset( $redux_demo ) && file_exists( dirname( __FILE__ ) . '/inc/redux-config.php' ) ) {
-	require_once( dirname( __FILE__ ) . '/inc/redux-config.php' );
-}
-// Some custom functions for getting and displaying the options
-require( get_template_directory() . '/inc/redux-functions.php' );
 
 /**
  * Add custom shortcodes

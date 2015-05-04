@@ -92,7 +92,7 @@ function _s_get_social_redux_array() {
 			$participating_networks[] = array(
 				'id' => $network['slug'],
 				'type' => 'text',
-				'title' => __( $network['input_label'], 'jewish-food-hero' ),
+				'title' => __( $network['input_label'], '_s' ),
 			);
 		}
 	}
