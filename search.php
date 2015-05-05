@@ -20,7 +20,7 @@ get_header(); ?>
 					} else {
 						$search_results_headline = __( 'Search Results for: %s', '_s' );
 					}
-					printf( $search_results_headline, '<span class="search-query">' . get_search_query() . '</span>' );
+					printf( esc_html__( $search_results_headline, '<span class="search-query">' . get_search_query() . '</span>' ) );
 				?></h1>
 			</header><!-- .page-header -->
 

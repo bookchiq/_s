@@ -57,11 +57,11 @@ $options = get_option( _S_OPTIONS );
 					</div><!-- .widget -->
 					<?php endif; ?>
 
-							<?php
-								/* translators: %1$s: smiley */
-								$archive_content = '<p>' . __( 'Try looking in the monthly archives.', '_s' ) . '</p>';
-								the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$archive_content" );
-							?>
+					<?php
+						/* translators: %1$s: smiley */
+						$archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', '_s' ), convert_smilies( ':)' ) ) . '</p>';
+						the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$archive_content" );
+					?>
 
 							<?php the_widget( 'WP_Widget_Tag_Cloud' ); ?>
 						<?php } ?>
