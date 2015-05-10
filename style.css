@@ -246,10 +246,14 @@ textarea {
   background-color: #B3D8FD; }
 
 h1, h2, h3, h4, h5, h6 {
-  clear: both; }
+  clear: both;
+  -ms-word-wrap: break-word;
+  word-wrap: break-word; }
 
 p {
-  margin-bottom: 1.5em; }
+  margin-bottom: 1.5em;
+  -ms-word-wrap: break-word;
+  word-wrap: break-word; }
 
 dfn, cite, em, i {
   font-style: italic; }
@@ -319,13 +323,18 @@ hr {
   margin-bottom: 1.5em; }
 
 ul, ol {
-  margin: 0 0 1.5em 3em; }
+  margin: 0 0 1.5em 1em; }
 
 ul {
   list-style: disc; }
 
 ol {
   list-style: decimal; }
+
+li {
+  margin-bottom: 1em;
+  -ms-word-wrap: break-word;
+  word-wrap: break-word; }
 
 li > ul,
 li > ol {

@@ -168,8 +168,6 @@ add_action( 'wp_enqueue_scripts', '_s_scripts' );
 // function _s_load_webfonts() {
 // 	wp_enqueue_style( 'fonts-dot-com', 'http://fast.fonts.net/cssapi/3e8ae6e5-4ff3-42d1-84f5-f0bfc55a21bd.css', array(), '1.0' );
 // 	add_editor_style( 'http://fast.fonts.net/cssapi/3e8ae6e5-4ff3-42d1-84f5-f0bfc55a21bd.css' );
-// 	wp_enqueue_style( '_s-webfonts', get_template_directory_uri() . '/css/webfonts.css', array(), _S_LATEST_SCRIPT_VERSION );
-// 	add_editor_style( get_template_directory_uri() . '/css/webfonts.css' );
 // }
 // add_action( 'wp_enqueue_scripts', '_s_load_webfonts' );
 // add_action( 'init', '_s_load_webfonts' );

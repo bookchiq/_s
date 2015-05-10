@@ -1,5 +1,5 @@
 ul, ol {
-	margin: 0 0 1.5em 3em;
+	margin: 0 0 1.5em 1em;
 }
 
 ul {
@@ -8,6 +8,12 @@ ul {
 
 ol {
 	list-style: decimal;
+}
+
+li {
+	margin-bottom: 1em;
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
 }
 
 li > ul,
