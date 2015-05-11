@@ -11,7 +11,11 @@
 	}
 
 	svg {
+		max-height: 100%;
+		max-width: 100%;
+
 		path {
+			@include transition( fill 400ms );
 			fill: #000;
 		}
 	}

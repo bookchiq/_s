@@ -668,8 +668,15 @@ a {
   width: 32px; }
   .social-icon a {
     outline: none; }
-  .social-icon svg path {
-    fill: #000; }
+  .social-icon svg {
+    max-height: 100%;
+    max-width: 100%; }
+    .social-icon svg path {
+      -moz-transition: fill 400ms;
+      -o-transition: fill 400ms;
+      -webkit-transition: fill 400ms;
+      transition: fill 400ms;
+      fill: #000; }
   .no-touch .social-icon:hover {
     background-color: #000; }
     .no-touch .social-icon:hover svg path {
