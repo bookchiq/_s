@@ -266,6 +266,11 @@ if ( class_exists( 'ReduxFramework' ) ) {
 }
 
 /**
+ * Add custom Visual Composer functions
+ */
+// require( get_template_directory() . '/inc/visual-composer.php' );
+
+/**
  * Add custom shortcodes
  */
 // require( get_template_directory() . '/inc/shortcodes.php' );
