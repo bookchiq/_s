@@ -26,11 +26,16 @@ function _s_get_option( $option_name, $args = array() ) {
 	$options = get_option( _S_OPTIONS );
 
 	if ( ! empty( $options[$option_name] ) ) {
-		$option_value = $options[$option_name];
-		
+		$option_value = apply_filters( '_s_get_option', $options[$option_name] );
+
 		// Filter it as needed
 		if ( $args['filter_content'] ) {
 			$option_value = apply_filters( 'the_content', $option_value );
+		}
+
+		// Apply shortcodes if requested
+		if ( $args['do_shortcode'] ) {
+			$option_value = do_shortcode( $option_value );
 		}
 
 		// Wrap it as needed
@@ -47,20 +52,9 @@ function _s_get_option( $option_name, $args = array() ) {
 					$out .= ' ' . $attribute_name . '="' . $attribute_value . '"';
 				}
 			}
-
-			$out .= '>';
-			if ( $args['do_shortcode'] ) {
-				$out .= do_shortcode( apply_filters( '_s_get_option', $option_value ) );
-			} else {
-				$out .= apply_filters( '_s_get_option', $option_value );
-			}
-			$out .= '</' . $args['container'] . '>';
+			$out .= '>' . $option_value . '</' . $args['container'] . '>';
 		} else {
-			if ( $args['do_shortcode'] ) {
-				$out = do_shortcode( apply_filters( '_s_get_option', $option_value ) );
-			} else {
-				$out = apply_filters( '_s_get_option', $option_value );
-			}
+			$out = $option_value;
 		}
 
 	}
