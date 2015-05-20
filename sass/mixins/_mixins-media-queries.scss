@@ -5,8 +5,9 @@
 //variables
 $XS: 12.5em; // 200px
 $S: 341px;
-$SM: 35em; // 560px
+$SM: 560px;
 $M: 750px;
+$ML: 946px;
 $L: 1250px;
 $XL: 1430px;
 $XXL: 2000px;
@@ -19,8 +20,14 @@ $XXL: 2000px;
 	@else if $canvas == S {
 		@media only screen and (min-width: $S) and (max-width: $M - 1) { @content; }
 	}
+	@else if $canvas == SM {
+		@media only screen and (min-width: $SM) and (max-width: $M - 1) { @content; }
+	}
 	@else if $canvas == M {
-		@media only screen and (min-width: $M) and (max-width: $L - 1) { @content; }
+		@media only screen and (min-width: $M) and (max-width: $ML - 1) { @content; }
+	}
+	@else if $canvas == ML {
+		@media only screen and (min-width: $ML) and (max-width: $L - 1) { @content; }
 	}
 	@else if $canvas == L {
 		@media only screen and (min-width: $L) and (max-width: $XL - .01) { @content; }
@@ -37,8 +44,14 @@ $XXL: 2000px;
 	@else if $canvas == Splus {
 		@media only screen and (min-width: $S) { @content; }
 	}
+	@else if $canvas == SMplus {
+		@media only screen and (min-width: $SM) { @content; }
+	}
 	@else if $canvas == Mplus {
 		@media only screen and (min-width: $M) { @content; }
+	}
+	@else if $canvas == MLplus {
+		@media only screen and (min-width: $ML) { @content; }
 	}
 	@else if $canvas == Lplus {
 		@media only screen and (min-width: $L) { @content; }
@@ -55,8 +68,14 @@ $XXL: 2000px;
 	@else if $canvas == Sneg {
 		@media only screen and (max-width: $S) { @content; }
 	}
+	@else if $canvas == SMneg {
+		@media only screen and (max-width: $SM) { @content; }
+	}
 	@else if $canvas == Mneg {
 		@media only screen and (max-width: $M) { @content; }
+	}
+	@else if $canvas == MLneg {
+		@media only screen and (max-width: $ML) { @content; }
 	}
 	@else if $canvas == Lneg {
 		@media only screen and (max-width: $L) { @content; }
