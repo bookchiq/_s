@@ -16,6 +16,7 @@ function _s_get_option( $option_name, $args = array() ) {
 		'container_id'    => '',
 		'filter_content'  => false,
 		'attributes'      => array(),
+		'do_shortcode'    => true,
 	);
 
 	$args = wp_parse_args( $args, $defaults );
@@ -46,9 +47,20 @@ function _s_get_option( $option_name, $args = array() ) {
 					$out .= ' ' . $attribute_name . '="' . $attribute_value . '"';
 				}
 			}
-			$out .= '>' . $option_value . '</' . $args['container'] . '>';
+
+			$out .= '>';
+			if ( $args['do_shortcode'] ) {
+				$out .= do_shortcode( apply_filters( '_s_get_option', $option_value ) );
+			} else {
+				$out .= apply_filters( '_s_get_option', $option_value );
+			}
+			$out .= '</' . $args['container'] . '>';
 		} else {
-			$out = $option_value;
+			if ( $args['do_shortcode'] ) {
+				$out = do_shortcode( apply_filters( '_s_get_option', $option_value ) );
+			} else {
+				$out = apply_filters( '_s_get_option', $option_value );
+			}
 		}
 
 	}
