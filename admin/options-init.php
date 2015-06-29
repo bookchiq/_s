@@ -157,7 +157,7 @@ if (!class_exists('_s_Redux_Framework_config')) {
 			$this->sections[] = array(
 				'title' => __( 'In-Site Microcopy', '_s' ),
 				'desc' => __( 'This section lets you set up the microcopy and general content that shows up throughout the site.', '_s' ),
-				'icon' => 'el-icon-filter',
+				'icon' => 'el-icon-list-alt',
 				'fields' => array(
 					// Search results
 					array(

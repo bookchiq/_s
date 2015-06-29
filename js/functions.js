@@ -12,9 +12,14 @@ jQuery( document ).ready( function( $ ) {
 
 
 	/***** Make external links open in new browser window/tab *****/
-	$('a').each(function() {
-		var a = new RegExp('/' + window.location.host + '/');
-		if( ( ! a.test( this.href ) ) && ( -1 === this.href.indexOf( 'mailto:' ) ) && ( -1 === this.href.indexOf( 'tel://' ) ) ) {
+	$( 'a' ).each(function() {
+		var a = new RegExp( '/' + window.location.host + '/' );
+		if( 
+			( ! a.test( this.href ) ) && 
+			( -1 === this.href.indexOf( 'mailto:' ) ) && 
+			( -1 === this.href.indexOf( 'tel://' ) ) && 
+			( ( undefined !== $( this ).attr( 'id' ) ) && ( -1 === $( this ).attr( 'id' ).indexOf( 'vc_' ) ) ) // Play nicely with Visual Composer
+		) {
 			$( this ).click( function( event ) {
 				event.preventDefault();
 				event.stopPropagation();
