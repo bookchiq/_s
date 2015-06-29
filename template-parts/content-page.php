@@ -4,6 +4,7 @@
  *
  * @package _s
  */
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -24,3 +25,4 @@
 	<footer class="entry-footer">
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
+
