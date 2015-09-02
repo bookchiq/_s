@@ -20,7 +20,21 @@ get_header(); ?>
 					} else {
 						$search_results_headline = __( 'Search Results for: %s', '_s' );
 					}
-					printf( esc_html__( $search_results_headline, '<span class="search-query">' . get_search_query() . '</span>' ) );
+					
+					$search_results_headline = str_replace( '%s', '<span class="search-query">"' . get_search_query() . '"</span>', $search_results_headline );
+					echo wp_kses( $search_results_headline, array( 
+						'a' => array(
+							'href' => array(),
+							'title' => array(),
+						),
+						'br' => array(),
+						'em' => array(),
+						'strong' => array(),
+						'span' => array(
+							'class' => array(),
+							'id' => array(),
+						),
+					));
 				?></h1>
 			</header><!-- .page-header -->
 

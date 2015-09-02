@@ -1,4 +1,6 @@
+/*jshint multistr: true */
 var kitID = 'fcm1wbn';
+if( typeof tinymce !== 'undefined' ) {
 (function() {
 	tinymce.create('tinymce.plugins.typekit', {
 		init: function(ed, url) {
@@ -50,3 +52,4 @@ var kitID = 'fcm1wbn';
 	});
 	tinymce.PluginManager.add('typekit', tinymce.plugins.typekit);
 })();
+}

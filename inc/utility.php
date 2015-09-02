@@ -17,8 +17,8 @@ function _s_admin_svg_display() {
 add_action('admin_head', '_s_admin_svg_display');
 
 
-// Add a class to the post and body classes if there is a featured image for this post
-function _s_add_blog_post_body_classes( $classes ) {
+// Add post and body classes if there is a featured image for this post
+function _s_add_blog_post_thumbnail_classes( $classes ) {
 	if ( ! is_single() ) {
 		return $classes;
 	}
@@ -31,15 +31,56 @@ function _s_add_blog_post_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', '_s_add_blog_post_body_classes' );
-add_filter( 'post_class', '_s_add_blog_post_body_classes' );
+add_filter( 'body_class', '_s_add_blog_post_thumbnail_classes' );
+add_filter( 'post_class', '_s_add_blog_post_thumbnail_classes' );
+
+
+// Add a body class to aid in development
+function _s_add_dev_body_classes( $classes ) {
+	// Test if this is a local install
+	if ( ( substr( $_SERVER['HTTP_HOST'], 0, 9 ) == 'localhost' ) OR ( substr( $_SERVER['HTTP_HOST'], 0, 7 ) == '192.168' ) OR ( substr( $_SERVER['REMOTE_ADDR'], 0, 7 ) == '192.168' ) ) {
+		$classes[] = 'dev';
+	}
+
+	return $classes;
+}
+add_filter( 'body_class', '_s_add_dev_body_classes' );
+
+
+/**
+* Add page slug body class
+*/ 
+add_filter( 'body_class', '_s_add_slug_body_class' );
+function _s_add_slug_body_class( $classes ) {
+	global $post;
+	if ( isset( $post ) ) {
+		$classes[] = $post->post_type . '-' . $post->post_name;
+	}
+	return $classes;
+}
+
+
+/**
+ * Turn off page comments and pings by default (they can still be enabled on a page-by-page basis)
+ */
+function _s_page_comments_off( $post_content, $post ) {
+	if ( $post->post_type )
+	switch ( $post->post_type ) {
+		case 'page':
+			$post->comment_status = 'closed';
+			$post->ping_status = 'closed';
+		break;
+	}
+	return $post_content;
+}
+add_filter( 'default_content', '_s_page_comments_off', 10, 2 );
 
 
 // Remove Visual Composer frontend editor (it doesn't always play nicely with the custom themes)
 function _s_vc_remove_frontend_links() {
 	vc_disable_frontend(); // this will disable frontend editor
 }
-add_action( 'vc_after_init', '_s_vc_remove_frontend_links' );
+// add_action( 'vc_after_init', '_s_vc_remove_frontend_links' );
 
 
 /**

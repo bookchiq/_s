@@ -4,7 +4,7 @@
 add_action( 'wp_enqueue_scripts', '_s_typekit_frontend_scripts' );
 function _s_typekit_frontend_scripts() {
 	// Make sure to replace the TypeKit ID in this file
-	wp_enqueue_script( '_s-typekit', get_template_directory_uri() . '/js/typekit.js' );
+	wp_enqueue_script( '_s-typekit', get_template_directory_uri() . '/js/typekit.min.js' );
 }
 
 // Disabling until there's a decent fix for the hideous BESbswy issue

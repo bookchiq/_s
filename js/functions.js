@@ -12,19 +12,34 @@ jQuery( document ).ready( function( $ ) {
 
 
 	/***** Make external links open in new browser window/tab *****/
-	$( 'a' ).each(function() {
+	$( 'a:not([id^="vc_"])' ).each(function() {
 		var a = new RegExp( '/' + window.location.host + '/' );
-		if( 
+
+		if(
 			( ! a.test( this.href ) ) && 
 			( -1 === this.href.indexOf( 'mailto:' ) ) && 
-			( -1 === this.href.indexOf( 'tel://' ) ) && 
-			( ( undefined !== $( this ).attr( 'id' ) ) && ( -1 === $( this ).attr( 'id' ).indexOf( 'vc_' ) ) ) // Play nicely with Visual Composer
+			( -1 === this.href.indexOf( 'tel://' ) ) // && 
 		) {
 			$( this ).click( function( event ) {
 				event.preventDefault();
 				event.stopPropagation();
 				window.open( this.href, '_blank' );
 			});
+		}
+	});
+
+
+	/***** Make iFrames responsive *****/
+	$( 'iframe' ).each( function() {
+		var videoRatio = ( $( this ).attr( 'height' ) / $( this ).attr( 'width' ) ) * 100;
+		if ( 0 < videoRatio ) {
+			$( this )
+			.css( 'position', 'absolute')
+			.css( 'top', '0')
+			.css( 'left', '0')
+			.attr( 'width', '100%')
+			.attr( 'height', '100%')
+			.wrap( '<div class="fluid-vids" style="position: relative; padding-top: ' + videoRatio + '%; width: 100%;"></div>');
 		}
 	});
 } );

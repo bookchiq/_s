@@ -13,9 +13,7 @@
 @import "mixins/mixins-master";
 
 body#tinymce.wp-editor {
-	// @include century-gothic;
-	@include font-size( 16 );
-	max-width: 682px; // Set this to the content width, so the line wraps fall at the same place
+	max-width: $size__site-width; // Set this to the content width, so the line wraps fall at the same place
 }
 
 /*--------------------------------------------------------------

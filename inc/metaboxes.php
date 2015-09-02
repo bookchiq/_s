@@ -26,7 +26,7 @@ function _s_metaboxes( $meta_boxes ) {
 			array(
 				'name' => 'Secondary content',
 				'id' => _S_METABOX_PREFIX . 'secondary_content',
-				// 'desc' => 'Anything you add in here will be displayed next to the logo.',
+				// 'desc' => __( 'Anything you add in here will be displayed next to the logo.', '_s' ),
 				'type' => 'wysiwyg'
 			),
 		),

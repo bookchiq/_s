@@ -161,7 +161,7 @@ function _s_scripts() {
 	wp_enqueue_style( '_s-style', get_stylesheet_uri(), array(), _S_LATEST_SCRIPT_VERSION );
 	
 	// Mobile and accessibility
-	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/modernizr.custom.js', array(), '2.8.3', false );
+	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/modernizr.custom.11375.min.js', array(), '11375', false );
 	wp_enqueue_script( 'svgeezy', get_template_directory_uri() . '/js/svgeezy.min.js', array(), '1.0', false );
 	wp_enqueue_script( '_s-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 	wp_enqueue_script( '_s-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
@@ -195,35 +195,6 @@ function _s_scripts_admin() {
 	wp_enqueue_script( '_s-admin', get_template_directory_uri() . '/js/admin.js', array( 'jquery' ), _S_LATEST_SCRIPT_VERSION, true );
 }
 add_action( 'admin_enqueue_scripts', '_s_scripts_admin' );
-
-
-/**
- * Turn off page comments and pings by default (they can still be enabled on a page-by-page basis)
- */
-function _s_page_comments_off( $post_content, $post ) {
-	if ( $post->post_type )
-	switch ( $post->post_type ) {
-		case 'page':
-			$post->comment_status = 'closed';
-			$post->ping_status = 'closed';
-		break;
-	}
-	return $post_content;
-}
-add_filter( 'default_content', '_s_page_comments_off', 10, 2 );
-
-
-/**
-* Add page slug body class
-*/ 
-add_filter( 'body_class', '_s_add_slug_body_class' );
-function _s_add_slug_body_class( $classes ) {
-	global $post;
-	if ( isset( $post ) ) {
-		$classes[] = $post->post_type . '-' . $post->post_name;
-	}
-	return $classes;
-}
 
 
 /**
