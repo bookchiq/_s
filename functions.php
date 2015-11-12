@@ -196,6 +196,10 @@ function _s_scripts_admin() {
 }
 add_action( 'admin_enqueue_scripts', '_s_scripts_admin' );
 
+/**
+* Load inline and async CSS
+*/
+require get_template_directory() . '/inc/load-css.php';
 
 /**
 * Add styles for the TinyMCE editor

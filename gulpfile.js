@@ -23,6 +23,9 @@ gulp.task('compass', function() {
 		// .pipe(gulp.dest('app/assets/temp'));
 });
 
+// Use Browsersync to show changes
+gulp.task('sass-watch', ['compass'], browserSync.reload);
+
 
 // Lint our JS files
 gulp.task('lint', function() {
@@ -34,7 +37,7 @@ gulp.task('lint', function() {
 
 // Minify & concatenate JS
 gulp.task('scripts', function() {
-	return gulp.src(['js/*.js', '!js/*.min.js'])
+	return gulp.src(['js/*.js', '!js/*.min.js', '!js/*.partial.js'])
 		.pipe(uglify())
 		.pipe(concat('app.min.js'))
 		.pipe(gulp.dest('js'));
@@ -43,44 +46,16 @@ gulp.task('scripts', function() {
 
 // Watch files for changes
 gulp.task('watch', function () {
+	browserSync({
+		proxy: "localhost/staging/opod/one-plus-one-design/",
+		host: "localhost",
+		port: 8080
+	});
+
 	gulp.watch('js/*.js', ['lint', 'scripts']);
-	gulp.watch('sass/**/*.scss', ['compass']);
+	gulp.watch('sass/**/*.scss', ['sass-watch']);
 });
 
 
 // Default Task
 gulp.task('default', ['lint', 'compass', 'scripts', 'watch']);
-
-
-// gulp.task('default', function() {
-//   // place code for your default task here
-// });
-
-// gulp.task('js', function () {
-//    return gulp.src(['js/**/*.js', '!js/**/*.min.js'])
-//       // .pipe(jshint())
-//       // .pipe(jshint.reporter('default'))
-//       .pipe(uglify())
-//       .pipe(concat('app.min.js'))
-//       .pipe(gulp.dest('js'));
-// });
-
-
-
-
-
-// gulp.task('browser-sync', function () {
-//    var files = [
-//       'app/**/*.html',
-//       'app/assets/css/**/*.css',
-//       'app/assets/imgs/**/*.png',
-//       'app/assets/js/**/*.js'
-//    ];
-
-//    browserSync.init(files, {
-//       server: {
-//          baseDir: './app'
-//       }
-//    });
-// });
-
