@@ -10,9 +10,7 @@
 	5.2 Galleries
 --------------------------------------------------------------*/
 body#tinymce.wp-editor {
-  font-size: 16px;
-  font-size: 1.6rem;
-  max-width: 682px; }
+  max-width: 940px; }
 
 /*--------------------------------------------------------------
 1.0 Typography
@@ -44,7 +42,7 @@ h1, h2, h3, h4, h5, h6 {
   word-wrap: break-word; }
 
 p {
-  margin-bottom: 1.5em;
+  margin: 0 0 1.5em;
   -ms-word-wrap: break-word;
   word-wrap: break-word; }
 
@@ -164,6 +162,7 @@ table {
   margin-left: 1.5em; }
 
 .aligncenter {
+  clear: both;
   display: block;
   margin-right: auto;
   margin-left: auto; }
@@ -184,7 +183,8 @@ table {
 .site-footer:before,
 .site-footer:after {
   content: "";
-  display: table; }
+  display: table;
+  table-layout: fixed; }
 
 .clear:after,
 .entry-content:after,

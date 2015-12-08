@@ -45,23 +45,28 @@ if ( ! function_exists( '_s_tinymce_add_google_fonts_styles' ) ) {
  * This function includes the default colors and adds custom colors
  */
 function _s_tinymce_change_colors( $init ) {
-	$colors = '
-		"526C73", "Blue-grey",
-		"6a605f", "Brown-grey",
-		"80775d", "Brown",
-		"c2b85c", "Green",
-		"58595b", "Dark Grey",
-		"d0d2d3", "Grey",
-		"e6e7e8", "Light Grey",
-		"f6f6f3", "Lightest Grey",
-		"b86645", "Red"
-		';
+	if ( file_exists( TEMPLATEPATH . '/inc/colors.php' ) ) {
+		include( TEMPLATEPATH . '/inc/colors.php' );
+	} else {
+		$colors = '
+			"526C73", "Blue-grey",
+			"6a605f", "Brown-grey",
+			"80775d", "Brown",
+			"c2b85c", "Green",
+			"58595b", "Dark Grey",
+			"d0d2d3", "Grey",
+			"e6e7e8", "Light Grey",
+			"f6f6f3", "Lightest Grey",
+			"b86645", "Red"
+			';
+	}
+
 	$init['textcolor_map'] = '[' . $colors . ']' ;
 	$init['textcolor_rows'] = 6; // expand color grid to 6 rows
 
 	return $init;
 }
-// add_filter('tiny_mce_before_init', '_s_tinymce_change_colors');
+add_filter('tiny_mce_before_init', '_s_tinymce_change_colors');
 
 
 /**

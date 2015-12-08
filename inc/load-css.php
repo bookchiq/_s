@@ -66,7 +66,7 @@ function one_plus_one_design_load_css() { ?>
 	  	}
 	  }(this));
 	  // load a file
-	  loadCSS( "<?php echo get_stylesheet_uri(); ?>" );
+	  loadCSS( "<?php echo get_stylesheet_uri() . '?v=' . _S_LATEST_SCRIPT_VERSION; ?>" );
 	</script>
-	<noscript><link href="<?php echo get_stylesheet_uri(); ?>" rel="stylesheet"></noscript>
-<? }
+	<noscript><link href="<?php echo get_stylesheet_uri() . '?v=' . _S_LATEST_SCRIPT_VERSION; ?>" rel="stylesheet"></noscript>
+<?php }

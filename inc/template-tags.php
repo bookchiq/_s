@@ -64,7 +64,7 @@ function _s_entry_footer() {
 		comments_popup_link( esc_html__( 'Leave a comment', '_s' ), esc_html__( '1 Comment', '_s' ), esc_html__( '% Comments', '_s' ) );
 		echo '</span>';
 	}
-
+}
 
 endif;
 
