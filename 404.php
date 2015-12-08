@@ -41,6 +41,7 @@ $options = get_option( _S_OPTIONS );
 							<?php get_search_form(); ?>
 
 							<?php the_widget( 'WP_Widget_Recent_Posts' ); ?>
+						<?php } ?>
 
 					<?php if ( _s_categorized_blog() ) : // Only show the widget if site has multiple categories. ?>
 					<div class="widget widget_categories">
@@ -75,4 +76,5 @@ $options = get_option( _S_OPTIONS );
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php get_footer(); ?>
+<?php
+get_footer();
