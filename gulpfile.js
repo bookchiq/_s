@@ -29,7 +29,7 @@ gulp.task('compass', function() {
 gulp.task('sass-watch', ['compass'], browserSync.reload);
 
 
-// Write PHP file
+// Write PHP colors file
 gulp.task('colors', function() {
 	var content = fs.readFileSync("./sass/variables-site/_colors.scss", "utf-8");
 	var php = '';
