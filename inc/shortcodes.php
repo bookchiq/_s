@@ -44,6 +44,7 @@ function _s_show_opt_in( $atts ) {
 		'button_text' => null,
 		'form_id' => null,
 		'form_id_field' => null,
+		'mc_list_id' => null,
 		'mc_group' => null,
 		'placeholder_email' => null,
 		'placeholder_email_alt' => null,
@@ -60,6 +61,11 @@ function _s_show_opt_in( $atts ) {
 		// Replace the button text
 		if ( ! empty( $button_text ) ) {
 			$opt_in_code = preg_replace( '/(<input type="submit".*?)value=".*?"(.*?>)/', '\1value="' . $button_text .'"\2', $opt_in_code );	
+		}
+
+		// Replace the list ID
+		if ( ! empty( $mc_list_id ) ) {
+			$opt_in_code = preg_replace( '/(action=".*?)id=[^&"]*(.*?")/', '\1id=' . $mc_list_id .'\2', $opt_in_code );
 		}
 
 		// Add MailChimp group ID
