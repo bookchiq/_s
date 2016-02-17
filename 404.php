@@ -40,7 +40,8 @@ $options = get_option( _S_OPTIONS );
 						<?php if ( ! dynamic_sidebar( 'four-oh-four' ) ) { ?>
 							<?php get_search_form(); ?>
 
-							<?php the_widget( 'WP_Widget_Recent_Posts' ); ?>
+						// Only show the widget if site has multiple categories.
+						if ( _s_categorized_blog() ) :
 						<?php } ?>
 
 					<?php if ( _s_categorized_blog() ) : // Only show the widget if site has multiple categories. ?>
