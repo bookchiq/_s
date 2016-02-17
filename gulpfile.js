@@ -1,15 +1,17 @@
 // Include gulp
-var gulp        = require('gulp');
+var gulp         = require('gulp');
 
 // Include plugins
-var browserSync = require('browser-sync');
-var compass     = require('gulp-compass');
-var concat      = require('gulp-concat');
-var fs          = require('fs');
-var jshint      = require('gulp-jshint');
-var minifyCSS   = require('gulp-minify-css');
-var uglify      = require('gulp-uglify');
-var watch       = require('gulp-watch');
+var autoprefixer = require('gulp-autoprefixer');
+var browserSync  = require('browser-sync');
+var compass      = require('gulp-compass');
+var concat       = require('gulp-concat');
+var fs           = require('fs');
+var jshint       = require('gulp-jshint');
+var minifyCSS    = require('gulp-minify-css');
+var notify       = require('gulp-notify');
+var uglify       = require('gulp-uglify');
+var watch        = require('gulp-watch');
 
 
 // Compile SCSS files with Compass
@@ -20,7 +22,15 @@ gulp.task('compass', function() {
 				css: './',
 				sass: 'sass'
 		}))
-		.pipe(minifyCSS());
+		.pipe(autoprefixer({
+			browsers: ['> 1%'],
+			cascade: false
+		}))
+		.pipe(minifyCSS())
+		.on('error', function (error) {
+			console.error('' + error);
+			notify("Error: " + error );
+		});
 		// .pipe(gulp.dest('app/assets/temp'));
 });
 
@@ -74,7 +84,11 @@ gulp.task('scripts', function() {
 	return gulp.src(['js/*.js', '!js/*.min.js', '!js/*.partial.js'])
 		.pipe(uglify())
 		.pipe(concat('app.min.js'))
-		.pipe(gulp.dest('js'));
+		.pipe(gulp.dest('js'))
+		.on('error', function (error) {
+			notify("Error: " + error );
+			console.error('' + error);
+		});
 });
 
 
