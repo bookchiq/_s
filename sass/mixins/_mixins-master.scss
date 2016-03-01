@@ -84,7 +84,7 @@
 
 // Forms
 // ==============================================
-@mixin placeholder( $color, $font-size: inherit, $font-style: normal ) {
+@mixin placeholder( $color: $color__text-input, $font-size: inherit, $font-style: normal ) {
 	::-webkit-input-placeholder {
 		color: $color;
 		font-size: $font-size;
