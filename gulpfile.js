@@ -22,22 +22,17 @@ gulp.task('compass', function() {
 				css: './',
 				sass: 'sass'
 		}))
+		.on('error', function (error) {
+			console.error('' + error);
+			notify("Error: " + error );
+		})
 		.pipe(autoprefixer({
 			browsers: ['> 1%'],
 			cascade: false
 		}))
 		.pipe(minifyCSS())
-		.on('error', function (error) {
-			console.error('' + error);
-			notify("Error: " + error );
-		});
-		// .pipe(gulp.dest('app/assets/temp'));
+		.pipe(gulp.dest('.'));;
 });
-
-
-// Use Browsersync to show changes
-gulp.task('sass-watch', ['compass'], browserSync.reload);
-
 
 // Write PHP colors file
 gulp.task('colors', function() {
@@ -47,18 +42,23 @@ gulp.task('colors', function() {
 
 	content.split(/\r?\n/).forEach(function(line) {
 		var match;
+		var hex;
+		var colorName;
 
 		if (match = line.match(colorRegex)) {
-			var hex = /#([a-fA-F0-9]+)/.exec(match);
-			var colorName = /\$color-([\w\d\-]+)/.exec(match);
-			colorName[1] = toTitleCase(colorName[1].replace('-',' '));
-			
-			if ( ( undefined !== hex[1] ) && ( undefined !== colorName[1] ) ) {
-				php = php + "\n" + '"' + hex[1] + '", "' + colorName[1] + '",';
+			if ( hex = /#([a-fA-F0-9]+)/.exec(match) ) {
+				if ( colorName = /\$color-([\w\d\-]+)/.exec(match) ) {
+					colorName[1] = toTitleCase(colorName[1].replace('-',' '));
+					
+					if ( ( null !== hex ) && ( null !== colorName ) ) {
+						if ( ( typeof hex[1] != 'undefined' ) && ( typeof colorName[1] != 'undefined' ) ) {
+								php = php + "\n" + '"' + hex[1] + '", "' + colorName[1] + '",';	
+						}
+					}
+				}
 			}
 	    }
 	});
-	// php = "global $tinymce_custom_colors = '" + php.replace(/,+$/,'') + "\n';";
 
 	php = "<?php $colors = '" + php.replace(/,+$/,'') + "\n';";
 	
@@ -95,14 +95,17 @@ gulp.task('scripts', function() {
 // Watch files for changes
 gulp.task('watch', function () {
 	browserSync({
-		proxy: "localhost/staging/opod/one-plus-one-design/",
+		proxy: "localhost/staging/yoko/foyo/",
 		host: "localhost",
 		port: 8080
 	});
 
 	gulp.watch('js/*.js', ['lint', 'scripts']);
-	gulp.watch('sass/**/*.scss', ['sass-watch']);
+	gulp.watch('sass/**/*.scss', ['compass']);
 	gulp.watch('sass/**/_colors.scss', ['colors']);
+
+	// Use Browsersync to show changes
+	gulp.watch("style.css").on("change", browserSync.reload);
 });
 
 
