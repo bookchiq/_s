@@ -62,7 +62,7 @@ function _s_tinymce_change_colors( $init ) {
 	}
 
 	$init['textcolor_map'] = '[' . $colors . ']' ;
-	$init['textcolor_rows'] = 6; // expand color grid to 6 rows
+	$init['textcolor_cols'] = 6; // expand color grid to 6 rows
 
 	return $init;
 }
