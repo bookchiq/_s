@@ -10,8 +10,12 @@ var fs           = require('fs');
 var jshint       = require('gulp-jshint');
 var minifyCSS    = require('gulp-minify-css');
 var notify       = require('gulp-notify');
+var pageres      = require('pageres');
 var uglify       = require('gulp-uglify');
 var watch        = require('gulp-watch');
+
+var projectTitle = 'Segue';
+var siteURLPath  = 'localhost/staging/yoko/segue/';
 
 
 // Compile SCSS files with Compass
@@ -92,10 +96,21 @@ gulp.task('scripts', function() {
 });
 
 
+// Take screenshots of most important pages
+gulp.task('screenshots', function() {
+	var standardSizes = ['1024x768', '1440x900', 'iphone 5s', 'iPhone 6 Plus', 'iPad Air'];
+	const screenshots = new pageres({delay: 2})
+		.src('http://' + siteURLPath, standardSizes, {crop: true, filename: projectTitle + ' - homepage - <%= size %><%= crop %>'})
+		.src('http://' + siteURLPath + 'blog/', standardSizes, {filename: projectTitle + ' - blog - <%= size %><%= crop %>'})
+		.dest('../../uploads/dev-screenshots/')
+		.run();
+});
+
+
 // Watch files for changes
 gulp.task('watch', function () {
 	browserSync({
-		proxy: "localhost/staging/yoko/foyo/",
+		proxy: siteURLPath,
 		host: "localhost",
 		port: 8080
 	});
@@ -103,6 +118,7 @@ gulp.task('watch', function () {
 	gulp.watch('js/*.js', ['lint', 'scripts']);
 	gulp.watch('sass/**/*.scss', ['compass']);
 	gulp.watch('sass/**/_colors.scss', ['colors']);
+	gulp.watch('style.css', ['screenshots']);
 
 	// Use Browsersync to show changes
 	gulp.watch("style.css").on("change", browserSync.reload);
